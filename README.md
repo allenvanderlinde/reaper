@@ -12,3 +12,17 @@ I'm writing reaper as both a challenge to produce a powerful tool and to provide
 You can visit my personal online portfolio [here][ghostcat].
 
 [ghostcat]: http://av.x10.bz/
+
+Notes on Code
+--------
+Reaper is written in C++ using the C++11 ISO standard with the Code::Blocks IDE and GNU GCC compiler.
+
+It is written to be as computationally efficient as possible in order to save time and consume less resources when parsing thousands of lines of data from feeds.
+
+The following are bullet points in terms of design and style.
+* The majority of code uses a personal underline style slightly reminicent of the Hungarian Notation style, however variables are not named with a clue as to their type and describe themselves more in the context of the function they're in.
+* OS-specific code and hacks (like those found in util.h) use a more traditional style (e.g., ```hWindowHandle```, ```pszSomeString```). Reaper is well-documented with traditional code commenting and comes with doxygen-powered documentation for interested learners and/or developers.
+
+Future Plans
+--------
+Reaper's source code might be translated to best compile on a Linux OS if found necessary.
