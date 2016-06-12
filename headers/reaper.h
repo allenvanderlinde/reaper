@@ -14,10 +14,8 @@
 #ifndef _REAPER_H_
 #define _REAPER_H_
 
-/** @brief Arbitrary version information (for now). */
-#define VERSION "0.1"
 /** @brief String of currently supported SIS integration feed types. */
-#define CURRENTLY_SUPPORTED "-> Blackboard Learn (v.9.1) Snapshot Flat File (plain text)"
+#define CURRENTLY_SUPPORTED "-> Blackboard Learn (9.1+) Snapshot Flat File (plain text)"
 
 /** @brief Maximum number of arguments allowed. */
 #define MAX_ARGS 6

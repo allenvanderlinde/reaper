@@ -14,15 +14,17 @@
 #ifndef _CFLATFILE_H_
 #define _CFLATFILE_H_
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <algorithm>
+#include "../../CFeedFile.h"
 
-class CFlatFile {
+#define THIS_FEED_TYPE "Snapshot Flat File"
+
+class CFlatFile {// : public FeedFile {;
 public:
-    CFlatFile();
+    /* Receives validated file paths when
+        reaper determines to build this object.
+        Any members are also initialized by input
+        from CReaperSession. */
+    CFlatFile(std::vector<std::string> _paths);
     ~CFlatFile();
 
     /**

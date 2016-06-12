@@ -13,7 +13,8 @@
 #include "../../headers/reaper.h"
 #include "headers/CFlatFile.h"
 
-CFlatFile::CFlatFile() {    // Members are initialized by input from CReaperSession
+CFlatFile::CFlatFile(std::vector<std::string> _paths) {
+    m_files = _paths;
 }
 
 CFlatFile::~CFlatFile() {
@@ -26,14 +27,15 @@ bool CFlatFile::build(const std::string &_file_path,
     m_details = _details;
     std::ifstream input(_file_path, std::ios::in);    // Open the stream to the file immediately
     if(input) {
+        std::cout << " SUCCESS: Opened \"" << m_files[PATH_FEED_FILE] << "\"..." << std::endl;
         if(m_details) {
-            std::cout << std::endl << " \t[Flat File metadata]: " << std::endl << std::endl;
+            std::cout << std::endl << " \ttype:\t\t" << THIS_FEED_TYPE << std::endl;
             /* Calculate physical size
                 of file. */
             input.seekg(0, input.end);
             int len = input.tellg();
             input.seekg(0, input.beg);
-            std::cout << "\t\tfile size: \t" << len << " bytes: " << ((double)len / 1024) << "k: " << ((double)((double)len / 1024) / 1024) << "mb" << std::endl;
+            std::cout << "\tfile size: \t" << len << " bytes: " << ((double)len / 1024) << "k: " << ((double)((double)len / 1024) / 1024) << "mb" << std::endl;
         }
         if(input.is_open()) {
             /* Build the entries vector from each line
@@ -42,10 +44,12 @@ bool CFlatFile::build(const std::string &_file_path,
                 m_entries.push_back(line);
                 m_num_lines++;
             }
-            if(m_details) std::cout << "\t\tsize: \t\t" << m_num_lines << " entries" << std::endl;
+            if(m_details) std::cout << "\tlength:\t\t" << m_num_lines << " entries" << std::endl;
             std::cout << std::endl;
-            /* Print out flat file's lines. */
-            if(m_details) for_each(m_entries.begin(), m_entries.end(), [](std::string s){ std::cout << "\t" << s << std::endl; });
+
+            // Print out flat file's lines
+            //if(m_details) for_each(m_entries.begin(), m_entries.end(), [](std::string s){ std::cout << "\t" << s << std::endl; });
+
         } else {
             std::cout << " reaper: Feed file is not open." << std::endl;
             return false;
