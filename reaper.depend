@@ -1,0 +1,87 @@
+# depslib dependency file v1.0
+1465591241 source:c:\users\vanallen\desktop\reaper\reaper.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<algorithm>
+	"headers/CReaperSession.h"
+	"headers/util.h"
+
+1465408063 c:\users\vanallen\desktop\reaper\headers\reaper.h
+
+1465593017 c:\users\vanallen\desktop\reaper\headers\creapersession.h
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<algorithm>
+	"CFlatFile.h"
+
+1465593038 source:c:\users\vanallen\desktop\reaper\creapersession.cpp
+	"headers/CReaperSession.h"
+
+1465637819 source:c:\users\arclain\desktop\reaper\creapersession.cpp
+	"headers/reaper.h"
+	"headers/CReaperSession.h"
+
+1465637862 c:\users\arclain\desktop\reaper\headers\creapersession.h
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<algorithm>
+	"../integration/bb_learn/headers/CFlatFile.h"
+
+1465637714 source:c:\users\arclain\desktop\reaper\reaper.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<algorithm>
+	"headers/reaper.h"
+	"headers/CReaperSession.h"
+	"headers/util.h"
+
+1465614431 c:\users\arclain\desktop\reaper\headers\util.h
+	<windows.h>
+	<iostream>
+
+1465521018 source:c:\users\arclain\desktop\reaper\util.cpp
+	"headers/util.h"
+
+1465591419 c:\users\vanallen\desktop\reaper\headers\util.h
+	<windows.h>
+
+1465592961 source:c:\users\vanallen\desktop\reaper\cflatfile.cpp
+	"headers/CFlatFile.h"
+
+1465592896 c:\users\vanallen\desktop\reaper\headers\cflatfile.h
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<algorithm>
+
+1465610138 source:c:\users\arclain\desktop\reaper\cflatfile.cpp
+	"headers/reaper.h"
+	"headers/CFlatFile.h"
+
+1465610277 c:\users\arclain\desktop\reaper\headers\cflatfile.h
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<algorithm>
+
+1465632234 c:\users\arclain\desktop\reaper\headers\reaper.h
+
+1465637759 c:\users\arclain\desktop\reaper\integration\bb_learn\headers\cflatfile.h
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<algorithm>
+
+1465638009 source:c:\users\arclain\desktop\reaper\integration\bb_learn\cflatfile.cpp
+	"../../headers/reaper.h"
+	"headers/CFlatFile.h"
+
