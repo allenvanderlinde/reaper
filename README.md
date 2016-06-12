@@ -20,11 +20,8 @@ Reaper is written in C++ using the C++11 ISO standard with the Code::Blocks IDE 
 It is written to be as computationally efficient as possible in order to save time and consume less resources when parsing thousands of lines of data from feeds.
 
 The following are bullet points in terms of design and style.
-<<<<<<< HEAD
-* The majority of code uses a mix of a personal underline/Standard C style and only sometimes reminicent of the Hungarian Notation style. Variable names will often times describe themselves more in the context of a function or they'll describe their purpose. Class variables are always preceeded with ```m_``` for clarity.
-=======
-* The majority of code uses a mix of a personal underline/Standard C style and is only sometimes reminiscent of the Hungarian Notation style. Variable names will often times describe themselves more in the context of a function or they'll describe their purpose. Class variables are always preceded with ```m_``` for clarity.
->>>>>>> refs/remotes/origin/file_io
+
+* The majority of code uses a mix of a personal underline/Standard C style and only sometimes reminiscent of the Hungarian Notation style. Variable names will often times describe themselves more in the context of a function or they'll describe their purpose. Class variables are always preceded with ```m_``` for clarity.
 * OS-specific code and hacks (like those found in ```util.h```) use a more traditional style like Camel case or Hungarian (e.g., ```windowHandle```, ```pszSomeString```). Reaper is well-documented with traditional code commenting and comes with doxygen-powered documentation for interested learners and/or developers.
 
 Future Plans
