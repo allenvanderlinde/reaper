@@ -1,0 +1,18 @@
+[template<> examples]:
+
+template<typename A, typename B>
+auto add(A i, B j) -> decltype(i + j) {
+    return i + j;
+}
+
+template<typename A, typename B>
+int p(A i, B j) {
+    return i + j;
+}
+
+
+[vector<> iteration and lambda closures]:
+
+vector<int> ints{3, 5, 2, 14, 15};
+int number = *find_if(ints.begin(), ints.end(), [](const int& i){ return ((i > 5) && (i < 15)); });
+cout << number << endl;
