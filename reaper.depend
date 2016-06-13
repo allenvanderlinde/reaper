@@ -1,29 +1,10 @@
 # depslib dependency file v1.0
-1465591241 source:c:\users\vanallen\desktop\reaper\reaper.cpp
-	<iostream>
-	<fstream>
-	<string>
-	<algorithm>
-	"headers/CReaperSession.h"
-	"headers/util.h"
-
-1465408063 c:\users\vanallen\desktop\reaper\headers\reaper.h
-
-1465593017 c:\users\vanallen\desktop\reaper\headers\creapersession.h
-	<iostream>
-	<fstream>
-	<string>
-	<vector>
-	<algorithm>
-	"CFlatFile.h"
-
-1465593038 source:c:\users\vanallen\desktop\reaper\creapersession.cpp
-	"headers/CReaperSession.h"
-
 1465706843 source:c:\users\arclain\desktop\reaper\creapersession.cpp
 	"headers/reaper.h"
 	"headers/CReaperSession.h"
 	"version.h"
+
+1465708620 c:\users\arclain\desktop\reaper\headers\reaper.h
 
 1465704063 c:\users\arclain\desktop\reaper\headers\creapersession.h
 	<iostream>
@@ -33,7 +14,27 @@
 	<algorithm>
 	"../integration/bb_learn/headers/CFlatFile.h"
 
-1465704977 source:c:\users\arclain\desktop\reaper\reaper.cpp
+1465754398 c:\users\arclain\desktop\reaper\integration\bb_learn\headers\cflatfile.h
+	"../../CFeedFile.h"
+
+1465777964 c:\users\arclain\desktop\reaper\integration\cfeedfile.h
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<algorithm>
+
+1465778485 c:\users\arclain\desktop\reaper\version.h
+
+1465778319 source:c:\users\arclain\desktop\reaper\integration\bb_learn\cflatfile.cpp
+	"../../headers/reaper.h"
+	"headers/CFlatFile.h"
+
+1465708086 source:c:\users\arclain\desktop\reaper\integration\cfeedfile.cpp
+	"CFeedFile.h"
+
+1465750683 source:c:\users\arclain\desktop\reaper\reaper.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -42,55 +43,7 @@
 	"headers/CReaperSession.h"
 	"headers/util.h"
 
-1465704063 c:\users\arclain\desktop\reaper\headers\util.h
+1465750757 c:\users\arclain\desktop\reaper\headers\util.h
 	<windows.h>
 	<iostream>
-
-1465521018 source:c:\users\arclain\desktop\reaper\util.cpp
-	"headers/util.h"
-
-1465591419 c:\users\vanallen\desktop\reaper\headers\util.h
-	<windows.h>
-
-1465592961 source:c:\users\vanallen\desktop\reaper\cflatfile.cpp
-	"headers/CFlatFile.h"
-
-1465592896 c:\users\vanallen\desktop\reaper\headers\cflatfile.h
-	<iostream>
-	<fstream>
-	<string>
-	<vector>
-	<algorithm>
-
-1465610138 source:c:\users\arclain\desktop\reaper\cflatfile.cpp
-	"headers/reaper.h"
-	"headers/CFlatFile.h"
-
-1465610277 c:\users\arclain\desktop\reaper\headers\cflatfile.h
-	<iostream>
-	<fstream>
-	<string>
-	<vector>
-	<algorithm>
-
-1465708620 c:\users\arclain\desktop\reaper\headers\reaper.h
-
-1465708317 c:\users\arclain\desktop\reaper\integration\bb_learn\headers\cflatfile.h
-	"../../CFeedFile.h"
-
-1465706303 source:c:\users\arclain\desktop\reaper\integration\bb_learn\cflatfile.cpp
-	"../../headers/reaper.h"
-	"headers/CFlatFile.h"
-
-1465708554 c:\users\arclain\desktop\reaper\version.h
-
-1465708086 source:c:\users\arclain\desktop\reaper\integration\cfeedfile.cpp
-	"CFeedFile.h"
-
-1465708326 c:\users\arclain\desktop\reaper\integration\cfeedfile.h
-	<iostream>
-	<fstream>
-	<string>
-	<vector>
-	<algorithm>
 

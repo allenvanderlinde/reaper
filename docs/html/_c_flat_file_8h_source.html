@@ -100,35 +100,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef _CFLATFILE_H_</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define _CFLATFILE_H_</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_flat_file.html">   23</a></span>&#160;<span class="keyword">class </span>CFlatFile {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    CFlatFile();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ~CFlatFile();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> build(<span class="keyword">const</span> std::string &amp;_file_path,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;               <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;_details);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_num_lines = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">bool</span> m_details;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::vector&lt;std::string&gt; m_files;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::vector&lt;std::string&gt; m_entries;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="keyword">typedef</span> <a class="code" href="class_flat_file.html">FlatFile</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../../CFeedFile.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define THIS_FEED_TYPE &quot;Snapshot Flat File&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_flat_file.html">   21</a></span>&#160;<span class="keyword">class </span>CFlatFile {<span class="comment">// : public FeedFile {;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">/* Receives validated file paths when</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">        reaper determines to build this object.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">        Any members are also initialized by input</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">        from CReaperSession. */</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    CFlatFile(std::vector&lt;std::string&gt; _paths);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ~CFlatFile();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> build(<span class="keyword">const</span> std::string &amp;_file_path,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;               <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;_details);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_num_lines = 0;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> m_details;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::vector&lt;std::string&gt; m_files;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::vector&lt;std::wstring&gt; m_entries;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif // _CFLATFILE_H_</span></div>
-<div class="ttc" id="class_flat_file_html"><div class="ttname"><a href="class_flat_file.html">FlatFile</a></div><div class="ttdef"><b>Definition:</b> CFlatFile.h:23</div></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="keyword">typedef</span> <a class="code" href="class_flat_file.html">FlatFile</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif // _CFLATFILE_H_</span></div>
+<div class="ttc" id="class_flat_file_html"><div class="ttname"><a href="class_flat_file.html">FlatFile</a></div><div class="ttdef"><b>Definition:</b> CFlatFile.h:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 11 2016 05:42:26 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 12 2016 20:50:48 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

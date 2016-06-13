@@ -15,7 +15,7 @@ You can visit my personal online portfolio [here][ghostcat].
 
 Notes on Code
 --------
-Reaper is written in C++ using the C++11 ISO standard with the Code::Blocks IDE and GNU GCC compiler.
+Reaper is written in C++ using the C++11 ISO standard with the Code::Blocks IDE and GNU GCC compiler. 
 
 It is written to be as computationally efficient as possible in order to save time and consume less resources when parsing thousands of lines of data from feeds.
 
@@ -23,6 +23,9 @@ The following are bullet points in terms of design and style.
 
 * The majority of code uses a mix of a personal underline/Standard C style and only sometimes reminiscent of the Hungarian Notation style. Variable names will often times describe themselves more in the context of a function or they'll describe their purpose. Class variables are always preceded with ```m_``` for clarity.
 * OS-specific code and hacks (like those found in ```util.h```) use a more traditional style like Camel case or Hungarian (e.g., ```windowHandle```, ```pszSomeString```). Reaper is well-documented with traditional code commenting and comes with doxygen-powered documentation for interested learners and/or developers.
+
+### Limitations
+* Reaper is currently limited to the use of using ```std::wstring```, ```std::wstringstream```, and ```std::wifstream``` in order to read and push Unicode 8-bit strings into its entries vector. A more portable and less compiler-dependent solution is included in the GCC 5.0+ compiler (C++14) which provides the programmer with the ```std::wstring_convert``` template object and the ```std::codecvt_utf8_utf16``` option which together allow for the same result as the ```std::w...``` method. Reaper will be updated with the improved method when possible. This limitation might not exist with the Visual C++ compiler.
 
 Future Plans
 --------

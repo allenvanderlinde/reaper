@@ -89,16 +89,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h2>Notes on Code </h2>
 <p>Reaper is written in C++ using the C++11 ISO standard with the Code::Blocks IDE and GNU GCC compiler.</p>
 <p>It is written to be as computationally efficient as possible in order to save time and consume less resources when parsing thousands of lines of data from feeds.</p>
-<p>The following are bullet points in terms of design and style.</p><ul>
-<li>The majority of code uses a personal underline style slightly reminicent of the Hungarian Notation style, however variables are not named with a clue as to their type and describe themselves more in the context of the function they're in.</li>
-<li>OS-specific code and hacks (like those found in <a class="el" href="util_8h.html" title="Utility functions for reaper and OS-specific code and hacks. ">util.h</a>) use a more traditional style (e.g., <code>hWindowHandle</code>, <code>pszSomeString</code>). Reaper is well-documented with traditional code commenting and comes with doxygen-powered documentation for interested learners and/or developers.</li>
+<p>The following are bullet points in terms of design and style.</p>
+<ul>
+<li>The majority of code uses a mix of a personal underline/Standard C style and only sometimes reminiscent of the Hungarian Notation style. Variable names will often times describe themselves more in the context of a function or they'll describe their purpose. Class variables are always preceded with <code>m_</code> for clarity.</li>
+<li>OS-specific code and hacks (like those found in <code><a class="el" href="util_8h.html" title="Utility functions for reaper and OS-specific code and hacks. ">util.h</a></code>) use a more traditional style like Camel case or Hungarian (e.g., <code>windowHandle</code>, <code>pszSomeString</code>). Reaper is well-documented with traditional code commenting and comes with doxygen-powered documentation for interested learners and/or developers.</li>
+</ul>
+<h3>Limitations</h3>
+<ul>
+<li>Reaper is currently limited to the use of using <code>std::wstring</code>, <code>std::wstringstream</code>, and <code>std::wifstream</code> in order to read and push Unicode 8-bit strings into its entries vector. A more portable and less compiler-dependent solution is included in the GCC 5.0+ compiler (C++14) which provides the programmer with the <code>std::wstring_convert</code> template object and the <code>std::codecvt_utf8_utf16</code> option which together allow for the same result as the <code>std::w...</code> method. Reaper will be updated with the improved method when possible. This limitation might not exist with the Visual C++ compiler.</li>
 </ul>
 <h2>Future Plans </h2>
 <p>Reaper's source code might be translated to best compile on a Linux OS if found necessary. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 11 2016 05:42:26 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 12 2016 20:50:48 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

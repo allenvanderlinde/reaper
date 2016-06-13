@@ -1,0 +1,57 @@
+EXTERNAL_COURSE_KEY|COURSE_ID|COURSE_NAME|TEMPLATE_COURSE_KEY|ALLOW_GUESTS_IND|EXTERNAL_TERM_KEY
+BADM_2213_LO1_CCP|BADM_2213_LO1_CCP|Personal Finance LO1|Test_Course_Import|N|CCP_Courses
+BIOL_1101_FG1_CCP|BIOL_1101_FG1_CCP|Principals of Biology I FG1|Test_Course_Import|N|CCP_Courses
+BIOL_1101_GO1_CCP|BIOL_1101_GO1_CCP|Häufig-Straßenbahn-Schönheit|Test_Course_Import|N|CCP_Courses
+BIOL_1125_DO1_CCP|BIOL_1125_DO1_CCP|Environmental Science DO1|Test_Course_Import|N|CCP_Courses
+CHEM_1120_LO1_CCP|CHEM_1120_LO1_CCP|Intro to Chemistry LO1|Test_Course_Import|N|CCP_Courses
+CHEM_1120_DO1_CCP|CHEM_1120_DO1_CCP|Intro to Chemistry DO1|Test_Course_Import|N|CCP_Courses
+CHEM_1120_FB1_CCP|CHEM_1120_FB1_CCP|Intro to Chemistry FB1|Test_Course_Import|N|CCP_Courses
+CHEM_1120_FD5_CCP|CHEM_1120_FD5_CCP|Intro to Chemistry FD5|Test_Course_Import|N|CCP_Courses
+CHEM_1120_FL4_CCP|CHEM_1120_FL4_CCP|Intro to Chemistry FL4|Test_Course_Import|N|CCP_Courses
+CHEM_1120_FL7_CCP|CHEM_1120_FL7_CCP|Intro to Chemistry FL7|Test_Course_Import|N|CCP_Courses
+CHEM_1120_GO1_CCP|CHEM_1120_GO1_CCP|Intro to Chemistry GO1|Test_Course_Import|N|CCP_Courses
+CHEM_1120_GO2_CCP|CHEM_1120_GO2_CCP|Intro to Chemistry GO2|Test_Course_Import|N|CCP_Courses
+CHEM_1120_LO2_CCP|CHEM_1120_LO2_CCP|Intro to Chemistry LO2|Test_Course_Import|N|CCP_Courses
+CHEM_1151_FD1_CCP|CHEM_1151_FD1_CCP|كيمياء السنة الأولى I FD1|Test_Course_Import|N|CCP_Courses
+CHEM_1152_DO1_CCP|CHEM_1152_DO1_CCP|First Year Chemistry II DO1|Test_Course_Import|N|CCP_Courses
+CHEM_1161_FD1_CCP|CHEM_1161_FD1_CCP|First Year Chemistry Lab I FD1|Test_Course_Import|N|CCP_Courses
+CHEM_1162_DO1_CCP|CHEM_1162_DO1_CCP|First Year Chemistry Lab II DO1|Test_Course_Import|N|CCP_Courses
+COMM_1115_GO1_CCP|COMM_1115_GO1_CCP|Fundamentals of Effect Speech GO1|Test_Course_Import|N|CCP_Courses
+COMM_1115_GO2_CCP|COMM_1115_GO2_CCP|Fundamentals of Effect Speech GO2|Test_Course_Import|N|CCP_Courses
+CSCI_1120_FL1_CCP|CSCI_1120_FL1_CCP|Computer Applications FL1|Test_Course_Import|N|CCP_Courses
+CSCI_1141_FG1_CCP|CSCI_1141_FG1_CCP|Intro to Computers II FG1|Test_Course_Import|N|CCP_Courses
+CSCI_1141_GO1_CCP|CSCI_1141_GO1_CCP|Intro to Computers II GO1|Test_Course_Import|N|CCP_Courses
+CSCI_2280_GO1_CCP|CSCI_2280_GO1_CCP|Co-OP Technical Support GO1|Test_Course_Import|N|CCP_Courses
+ENGL_1101_FB2_CCP|ENGL_1101_FB2_CCP|English Comp I  FB2|Test_Course_Import|N|CCP_Courses
+ENGL_1101_FL2_CCP|ENGL_1101_FL2_CCP|English Comp I  FL2|Test_Course_Import|N|CCP_Courses
+ENGL_1101_FL3_CCP|ENGL_1101_FL3_CCP|English Comp I FL3|Test_Course_Import|N|CCP_Courses
+ENGL_1101_GO1_CCP|ENGL_1101_GO1_CCP|English Comp I GO1|Test_Course_Import|N|CCP_Courses
+ENGL_1101_GO2_CCP|ENGL_1101_GO2_CCP|English Comp I GO2|Test_Course_Import|N|CCP_Courses
+ENGL_1102_BO3_CCP|ENGL_1102_BO3_CCP|English Comp II BO3|Test_Course_Import|N|CCP_Courses
+ENGL_1102_GO2_CCP|ENGL_1102_GO2_CCP|English Comp II GO2|Test_Course_Import|N|CCP_Courses
+ENGL_1102_LO2_CCP|ENGL_1102_LO2_CCP|English Comp II LO2|Test_Course_Import|N|CCP_Courses
+ENGL_2235_BO1_CCP|ENGL_2235_BO1_CCP|American Lit after 1865 BO1|Test_Course_Import|N|CCP_Courses
+FLNG_1120_FL1_CCP|FLNG_1120_FL1_CCP|Beginning American Sign Lang I FL1|Test_Course_Import|N|CCP_Courses
+FLNG_1121_LO1_CCP|FLNG_1121_LO1_CCP|Beginning American Sign Lang II LO1|Test_Course_Import|N|CCP_Courses
+FNAR_1105_LO1_CCP|FNAR_1105_LO1_CCP|Basic Drawing I LO1|Test_Course_Import|N|CCP_Courses
+FNAR_1117_FB1_CCP|FNAR_1117_FB1_CCP|Music Appreciation II FB1|Test_Course_Import|N|CCP_Courses
+HIST_1110_FB1_CCP|HIST_1110_FB1_CCP|第一年化学| Test_Course_Import|N|CCP_Courses
+HIST_1111_BO1_CCP|HIST_1111_BO1_CCP|American History I BO1|Test_Course_Import|N|CCP_Courses
+HIST_1111_GO1_CCP|HIST_1111_GO1_CCP|American History I GO1|Test_Course_Import|N|CCP_Courses
+HIST_1152_GO1_CCP|HIST_1152_GO1_CCP|Intro to Western Civilization II GO1|Test_Course_Import|N|CCP_Courses
+MATH_1141_FD1_CCP|MATH_1141_FD1_CCP|College Algebra FD1|Test_Course_Import|N|CCP_Courses
+MATH_1141_FG1_CCP|MATH_1141_FG1_CCP|College Algebra FG1| Test_Course_Import|N|CCP_Courses
+MATH_1141_FL1_CCP|MATH_1141_FL1_CCP|College Algebra FL1|Test_Course_Import|N|CCP_Courses
+MATH_1141_GO1_CCP|MATH_1141_GO1_CCP|College Algebra GO1|Test_Course_Import|N|CCP_Courses
+MATH_1142_DO2_CCP|MATH_1142_DO2_CCP|College Trigonometry DO2|Test_Course_Import|N|CCP_Courses
+MATH_1142_FG1_CCP|MATH_1142_FG1_CCP|College Trigonometry  FG1|Test_Course_Import|N|CCP_Courses
+MATH_1142_GO1_CCP|MATH_1142_GO1_CCP|College Trigonometry GO1|Test_Course_Import|N|CCP_Courses
+MATH_1142_LO1_CCP|MATH_1142_LO1_CCP|College Trigonometry LO1|Test_Course_Import|N|CCP_Courses
+OFIT_1130_LO1_CCP|OFIT_1130_LO1_CCP|Word Processing I LO1|Test_Course_Import|N|CCP_Courses
+PHYS_1115_DO1_CCP|PHYS_1115_DO1_CCP|App Phys II Heat  Light Sound DO1|Test_Course_Import|N|CCP_Courses
+PHYS_1117_FD1_CCP|PHYS_1117_FD1_CCP|App Phys II Mechanics FD1|Test_Course_Import|N|CCP_Courses
+PSCI_1104_FB1_CCP|PSCI_1104_FB1_CCP|American Gov I FB1|Test_Course_Import|N|CCP_Courses
+PSCI_1104_GO1_CCP|PSCI_1104_GO1_CCP|American Gov II GO1|Test_Course_Import|N|CCP_Courses
+PSCI_1105_BO2_CCP|PSCI_1105_BO2_CCP|American Gov II BO2|Test_Course_Import|N|CCP_Courses
+PSCI_1105_GO1_CCP|PSCI_1105_GO1_CCP|American Gov II GO1|Test_Course_Import|N|CCP_Courses
+SOCI_1170_BO1_CCP|SOCI_1170_BO1_CCP|Intro to Sociology BO1|Test_Course_Import|N|CCP_Courses

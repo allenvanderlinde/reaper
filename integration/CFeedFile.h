@@ -15,7 +15,9 @@
 #define _CFEEDFILE_H_
 
 #include <iostream>
+
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -24,7 +26,8 @@ class CFeedFile {
 public:
 
 private:
-    std::string s;
+    //std::string s;
+
 
 } typedef FeedFile;
 

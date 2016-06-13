@@ -22,41 +22,48 @@ CFlatFile::~CFlatFile() {
 
 bool CFlatFile::build(const std::string &_file_path,
                       const bool &_details) {
-    std::string line;    /* Temporary string for each line which is
-                            placed in the entries vector. */
     m_details = _details;
-    std::ifstream input(_file_path, std::ios::in);    // Open the stream to the file immediately
-    if(input) {
+
+    /* These are the input stream objects for reading
+        the specified feed file (UTF-8). */
+    std::wstringstream u16_sstream;
+    std::wstring line;  /* Temporary string for each line which is
+                            placed in the entries vector. */
+    std::wifstream u16_ifs(_file_path, std::ios::in);    // Open the stream to the file immediately
+
+    /* Read the specified feed file and push each
+        line into the entries vector. */
+    if((u16_ifs.rdstate() & std::fstream::failbit) != 0) {  // != 0 is failure meaning the failbit is present
+        std::cout << " reaper: Unable to open file at: \"" << _file_path << "\"" << std::endl;
+        return false;
+    } else {
         std::cout << " SUCCESS: Opened \"" << m_files[PATH_FEED_FILE] << "\"..." << std::endl;
         if(m_details) {
             std::cout << std::endl << " \ttype:\t\t" << THIS_FEED_TYPE << std::endl;
             /* Calculate physical size
                 of file. */
-            input.seekg(0, input.end);
-            int len = input.tellg();
-            input.seekg(0, input.beg);
+            u16_ifs.seekg(0, u16_ifs.end);
+            int len = u16_ifs.tellg();
+            u16_ifs.seekg(0, u16_ifs.beg);
             std::cout << "\tfile size: \t" << len << " bytes: " << ((double)len / 1024) << "k: " << ((double)((double)len / 1024) / 1024) << "mb" << std::endl;
         }
-        if(input.is_open()) {
+        if(u16_ifs.is_open()) {
             /* Build the entries vector from each line
-                in the feed file. */
-            while(getline(input, line)) {
+                in the feed file via a loop. */
+            while(std::getline(u16_ifs, line)) {
                 m_entries.push_back(line);
                 m_num_lines++;
             }
             if(m_details) std::cout << "\tlength:\t\t" << m_num_lines << " entries" << std::endl;
             std::cout << std::endl;
 
-            // Print out flat file's lines
-            //if(m_details) for_each(m_entries.begin(), m_entries.end(), [](std::string s){ std::cout << "\t" << s << std::endl; });
+            // Print out flat file's lines (Note: The cmd console isn't set to display Unicode chars correctly)
+            //if(m_details) std::for_each(m_entries.begin(), m_entries.end(), [](std::wstring s){ std::wcout << "\t" << s << std::endl; });
 
         } else {
             std::cout << " reaper: Feed file is not open." << std::endl;
             return false;
         }
-    } else {
-        std::cout << " reaper: Unable to open file at: \"" << _file_path << "\"" << std::endl;
-        return false;
     }
 
     return true;

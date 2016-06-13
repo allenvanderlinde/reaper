@@ -21,7 +21,7 @@
  * and replaces it with a space, effectively clearing
  * the console.
  */
-inline void utilClearConsole() {
+inline void util_ClearConsole() {
     HANDLE hConsole;
     CONSOLE_SCREEN_BUFFER_INFO csbi_t;
     DWORD nCount;
@@ -45,10 +45,11 @@ inline void utilClearConsole() {
 }
 
 /**
- * @brief Display a progress percentage. Currently only a model
- * with contrived percentage iterations.
+ * @brief Display a simple progress percentage.
+ * Currently only a model with contrived
+ * percentage iterations.
  */
-inline void show_progress(void) {
+inline void util_ShowProgress(void) {
     std::cout << std::endl;   // New line if necessary
 
     float progress = 0.0f; /* We use a float for the model to control iteration speed.

@@ -47,7 +47,7 @@ private:
     std::vector<std::string> m_files;
 
     /** @brief Vector of entries read from file line-by-line. */
-    std::vector<std::string> m_entries;
+    std::vector<std::wstring> m_entries;
 
 } typedef FlatFile;
 
