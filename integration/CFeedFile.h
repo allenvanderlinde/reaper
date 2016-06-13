@@ -15,7 +15,6 @@
 #define _CFEEDFILE_H_
 
 #include <iostream>
-
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -24,10 +23,20 @@
 
 class CFeedFile {
 public:
+    CFeedFile(const bool &_details);
+    ~CFeedFile();
 
-private:
-    //std::string s;
+protected:
+    /** @brief Display detailed actions of this object during runtime.
+     *  CReaperSession passes its value of details to this object.
+     */
+    bool m_details;
 
+    /**
+     * @brief Virtual function for derived classes' build operation.
+     * @retval bool True if build successful.
+     */
+    virtual bool build() = 0;
 
 } typedef FeedFile;
 

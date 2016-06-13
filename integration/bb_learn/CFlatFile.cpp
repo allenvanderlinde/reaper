@@ -13,28 +13,27 @@
 #include "../../headers/reaper.h"
 #include "headers/CFlatFile.h"
 
-CFlatFile::CFlatFile(std::vector<std::string> _paths) {
+CFlatFile::CFlatFile(std::vector<std::string> _paths,
+                     const bool &_details)
+    : CFeedFile(_details) {
     m_files = _paths;
 }
 
 CFlatFile::~CFlatFile() {
 };
 
-bool CFlatFile::build(const std::string &_file_path,
-                      const bool &_details) {
-    m_details = _details;
-
+bool CFlatFile::build() {
     /* These are the input stream objects for reading
         the specified feed file (UTF-8). */
     std::wstringstream u16_sstream;
     std::wstring line;  /* Temporary string for each line which is
                             placed in the entries vector. */
-    std::wifstream u16_ifs(_file_path, std::ios::in);    // Open the stream to the file immediately
+    std::wifstream u16_ifs(m_files[PATH_FEED_FILE], std::ios::in);    // Open the stream to the file immediately
 
     /* Read the specified feed file and push each
         line into the entries vector. */
     if((u16_ifs.rdstate() & std::fstream::failbit) != 0) {  // != 0 is failure meaning the failbit is present
-        std::cout << " reaper: Unable to open file at: \"" << _file_path << "\"" << std::endl;
+        std::cout << " reaper: Unable to open file at: \"" << m_files[PATH_FEED_FILE] << "\"" << std::endl;
         return false;
     } else {
         std::cout << " SUCCESS: Opened \"" << m_files[PATH_FEED_FILE] << "\"..." << std::endl;

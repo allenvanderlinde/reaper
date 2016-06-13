@@ -15,7 +15,7 @@ You can visit my personal online portfolio [here][ghostcat].
 
 Notes on Code
 --------
-Reaper is written in C++ using the C++11 ISO standard with the Code::Blocks IDE and GNU GCC compiler. 
+Reaper is written in C++ using the C++11/C++0x ISO standard with the Code::Blocks IDE and GNU GCC compiler. 
 
 It is written to be as computationally efficient as possible in order to save time and consume less resources when parsing thousands of lines of data from feeds.
 
@@ -29,4 +29,4 @@ The following are bullet points in terms of design and style.
 
 Future Plans
 --------
-Reaper's source code might be translated to best compile on a Linux OS if found necessary.
+* Reaper's source code might be translated to best compile on a Linux OS

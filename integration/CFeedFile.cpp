@@ -12,3 +12,9 @@
 
 #include "CFeedFile.h"
 
+CFeedFile::CFeedFile(const bool &_details) {
+    m_details = _details;
+}
+
+CFeedFile::~CFeedFile() {
+}

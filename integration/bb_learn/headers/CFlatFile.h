@@ -18,13 +18,12 @@
 
 #define THIS_FEED_TYPE "Snapshot Flat File"
 
-class CFlatFile {// : public FeedFile {;
+class CFlatFile : public FeedFile {
 public:
     /* Receives validated file paths when
-        reaper determines to build this object.
-        Any members are also initialized by input
-        from CReaperSession. */
-    CFlatFile(std::vector<std::string> _paths);
+        reaper determines to build this object. */
+    CFlatFile(std::vector<std::string> _paths,
+              const bool &_details);
     ~CFlatFile();
 
     /**
@@ -33,16 +32,12 @@ public:
      * @param[in] _details Should details be printed about this build?
      * @retval bool True if object is built.
      */
-    bool build(const std::string &_file_path,
-               const bool &_details);
+    bool build();
 
 private:
     /** @brief Integer that keeps track of how many lines are processed. */
     unsigned int m_num_lines = 0;
-    /** @brief Display detailed actions of this object during runtime.
-     *  CReaperSession passes its value of details to this object.
-     */
-    bool m_details;
+
     /** @brief Vector of remaining arguments after delimiter and details option chosen. */
     std::vector<std::string> m_files;
 

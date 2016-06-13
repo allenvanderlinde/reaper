@@ -126,8 +126,8 @@ bool CReaperSession::read_args(char* _argv[]) {
         std::cout << std::endl << " reaper.exe: Reaper was unable to process your arguments." << std::endl;
         return false;
     }
-    if(m_details) std::cout << std::endl << " SUCCESS: Arguments stored" << std::endl << std::endl;
-    else std::cout << " SUCCESS: Arguments stored" << std::endl;
+    if(m_details) std::cout << std::endl << " SUCCESS: " << m_argc << " arguments stored" << std::endl << std::endl;
+    else std::cout << " SUCCESS: " << m_argc << " arguments stored" << std::endl;
 
     return true;
 }
@@ -135,7 +135,6 @@ bool CReaperSession::read_args(char* _argv[]) {
 bool CReaperSession::store_args(char* _argv[]) {
     if(m_details) {
         std::cout << std::endl << "\tARGUMENT DETAILS:" << std::endl << std::endl;
-        std::cout << "\t\targuments: " << m_argc << std::endl;
     }
     for(int i = 0; i < m_argc; i++) {
         m_args.push_back(_argv[i + 1]);
@@ -150,8 +149,8 @@ void CReaperSession::reap(const std::string &_file_path,
 
     switch(feed_type) {
     case BB_FLAT_FILE:
-        ff = new FlatFile(m_paths);
-        if(!ff->build(m_paths[PATH_FEED_FILE], m_details)) {
+        ff = new FlatFile(m_paths, m_details);
+        if(!ff->build()) {
             std::cout << " reaper.exe: FATAL: Unable to build integration feed file object." << std::endl;
             return;
         }
