@@ -59,8 +59,7 @@ public:
      * @param[in] feed_type A string representing the kind of feed
      * file being used based on the integration.
      */
-    void reap(const std::string &_file_path,
-              const int &feed_type);
+    void reap(const int &feed_type);
 
     /**
      * @brief Are details being displayed?

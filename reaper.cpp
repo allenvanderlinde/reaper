@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
     } else return 0;
     std::cout << std::endl << " Reaper is RUNNING..." << std::endl << std::endl;
 
-    reaper->reap(std::string("input.txt"), BB_FLAT_FILE);   // Final version should only need feed type specified
+    reaper->reap(BB_FLAT_FILE);   // Final version should only need feed type specified
 
     std::cout << std::endl << " EXITING Reaper..." << std::endl;
 

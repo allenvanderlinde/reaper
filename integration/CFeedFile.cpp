@@ -17,4 +17,6 @@ CFeedFile::CFeedFile(const options_t &_options) {
 }
 
 CFeedFile::~CFeedFile() {
+    m_files.clear();
+    m_entries.clear();
 }

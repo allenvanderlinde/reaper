@@ -53,6 +53,8 @@ CReaperSession::CReaperSession(const int &_argc,
 }
 
 CReaperSession::~CReaperSession() {
+    m_args.clear();
+    m_paths.clear();
 }
 
 bool CReaperSession::ready(const int &_argc,
@@ -145,8 +147,7 @@ bool CReaperSession::store_args(char* _argv[]) {
     return true;
 }
 
-void CReaperSession::reap(const std::string &_file_path,
-                          const int &feed_type) {
+void CReaperSession::reap(const int &feed_type) {
     std::cout << " Opening \"" << m_paths[PATH_FEED_FILE] << "\"..." << std::endl;
 
     switch(feed_type) {
