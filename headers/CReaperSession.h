@@ -20,6 +20,7 @@
 #include <vector>
 #include <algorithm>
 
+#include "reaper.h"
 #include "../integration/bb_learn/headers/CFlatFile.h"
 
 class CReaperSession {
@@ -65,7 +66,7 @@ public:
      * @brief Are details being displayed?
      * @retval bool Yes or no.
      */
-    bool using_details() { return m_details; }
+    bool using_details() { return options.use_details; }
     /**
      * @brief Is reaper ready to run?
      * @retval bool Yes or no.
@@ -75,8 +76,9 @@ public:
 private:
     /** @brief Tells main thread if this object was instantiated successfully. */
     bool m_ready = false;
-    /** @brief Display detailed actions of this object during runtime. */
-    bool m_details = false;
+    /** @brief Structure of reaper options to use during runtime. */
+    options_t options;
+
     /** @brief Number of arguments passed into the command line. */
     int m_argc;
     /** @brief The actual character identifying the delimiter when it's found. */

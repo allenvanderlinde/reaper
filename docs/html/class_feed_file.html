@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,17 +83,101 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="class_feed_file-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">FeedFile Class Reference</div>  </div>
+<div class="title">FeedFile Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for FeedFile:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_feed_file.png" usemap="#FeedFile_map" alt=""/>
+  <map id="FeedFile_map" name="FeedFile_map">
+<area href="class_flat_file.html" alt="FlatFile" shape="rect" coords="0,56,62,80"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a2d9a83ca8dffa57ba4ef7fd1ee4838f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d9a83ca8dffa57ba4ef7fd1ee4838f0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CFeedFile</b> (const <a class="el" href="structoptions__t.html">options_t</a> &amp;_options)</td></tr>
+<tr class="separator:a2d9a83ca8dffa57ba4ef7fd1ee4838f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69feee332115b0f33a89c0214d47d564"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69feee332115b0f33a89c0214d47d564"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a69feee332115b0f33a89c0214d47d564">dump_entries</a> ()</td></tr>
+<tr class="memdesc:a69feee332115b0f33a89c0214d47d564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump contents of entries vector to a plain text file essentially as a copy to test if UTF-8 characters or other features of the source file remain intact from reaper's storage. <br /></td></tr>
+<tr class="separator:a69feee332115b0f33a89c0214d47d564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a5dbeec7d694d6f0a4a05c2e3e929bd6c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a5dbeec7d694d6f0a4a05c2e3e929bd6c">build</a> ()=0</td></tr>
+<tr class="memdesc:a5dbeec7d694d6f0a4a05c2e3e929bd6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual function for derived classes' build operation.  <a href="#a5dbeec7d694d6f0a4a05c2e3e929bd6c">More...</a><br /></td></tr>
+<tr class="separator:a5dbeec7d694d6f0a4a05c2e3e929bd6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a77a5e73d2b2d12543c67b12b05af76b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77a5e73d2b2d12543c67b12b05af76b3"></a>
+<a class="el" href="structoptions__t.html">options_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">m_options</a></td></tr>
+<tr class="memdesc:a77a5e73d2b2d12543c67b12b05af76b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure of options passed from CReaperSession to specify special actions. <br /></td></tr>
+<tr class="separator:a77a5e73d2b2d12543c67b12b05af76b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ec5a6608c3952343d668093f3784489"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ec5a6608c3952343d668093f3784489"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a0ec5a6608c3952343d668093f3784489">m_num_lines</a> = 0</td></tr>
+<tr class="memdesc:a0ec5a6608c3952343d668093f3784489"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer that keeps track of how many lines are processed. <br /></td></tr>
+<tr class="separator:a0ec5a6608c3952343d668093f3784489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd1e278ce06a454d30444ccdef83f465"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd1e278ce06a454d30444ccdef83f465"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">m_files</a></td></tr>
+<tr class="memdesc:afd1e278ce06a454d30444ccdef83f465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of remaining arguments after delimiter and details option chosen. <br /></td></tr>
+<tr class="separator:afd1e278ce06a454d30444ccdef83f465"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e590fb0c14b57417ddb98847df1626"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60e590fb0c14b57417ddb98847df1626"></a>
+std::vector&lt; std::wstring &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">m_entries</a></td></tr>
+<tr class="memdesc:a60e590fb0c14b57417ddb98847df1626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of entries read from file line-by-line. <br /></td></tr>
+<tr class="separator:a60e590fb0c14b57417ddb98847df1626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a5dbeec7d694d6f0a4a05c2e3e929bd6c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool FeedFile::build </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual function for derived classes' build operation. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">bool</td><td>True if build successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_flat_file.html#a1aaacfd9085aab518ea0d07a0ccfdccb">FlatFile</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>integration/<a class="el" href="_c_feed_file_8h_source.html">CFeedFile.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 12 2016 20:54:35 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 13 2016 15:21:00 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

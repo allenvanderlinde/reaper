@@ -12,8 +12,8 @@
 
 #include "CFeedFile.h"
 
-CFeedFile::CFeedFile(const bool &_details) {
-    m_details = _details;
+CFeedFile::CFeedFile(const options_t &_options) {
+    m_options = _options;
 }
 
 CFeedFile::~CFeedFile() {

@@ -10,12 +10,11 @@
    and is subject to the terms and conditions provided in LICENSE.txt.
 */
 
-#include "../../headers/reaper.h"
 #include "headers/CFlatFile.h"
 
 CFlatFile::CFlatFile(std::vector<std::string> _paths,
-                     const bool &_details)
-    : CFeedFile(_details) {
+                     const options_t &_options)
+    : CFeedFile(_options) {
     m_files = _paths;
 }
 
@@ -37,7 +36,7 @@ bool CFlatFile::build() {
         return false;
     } else {
         std::cout << " SUCCESS: Opened \"" << m_files[PATH_FEED_FILE] << "\"..." << std::endl;
-        if(m_details) {
+        if(m_options.use_details) {
             std::cout << std::endl << " \ttype:\t\t" << THIS_FEED_TYPE << std::endl;
             /* Calculate physical size
                 of file. */
@@ -53,12 +52,13 @@ bool CFlatFile::build() {
                 m_entries.push_back(line);
                 m_num_lines++;
             }
-            if(m_details) std::cout << "\tlength:\t\t" << m_num_lines << " entries" << std::endl;
+            if(m_options.use_details) std::cout << "\tlength:\t\t" << m_num_lines << " entries" << std::endl;
+            if(m_options.dump_entries) dump_entries();
             std::cout << std::endl;
 
-            // Print out flat file's lines (Note: The cmd console isn't set to display Unicode chars correctly)
-            //if(m_details) std::for_each(m_entries.begin(), m_entries.end(), [](std::wstring s){ std::wcout << "\t" << s << std::endl; });
-
+            /* Print out flat file's lines (Note: The cmd console isn't set to display Unicode chars correctly). */
+            //if(m_options.use_details) std::for_each(m_entries.begin(), m_entries.end(), [](std::wstring s){ std::wcout << "\t" << s << std::endl; });
+            u16_ifs.close();
         } else {
             std::cout << " reaper: Feed file is not open." << std::endl;
             return false;

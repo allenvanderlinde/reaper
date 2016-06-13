@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,13 +90,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_flat_file.html">FlatFile</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_flat_file.html#aa4d6c9c094e22d730e82d4b844b7abab">build</a>(const std::string &amp;_file_path, const bool &amp;_details)</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>CFlatFile</b>(std::vector&lt; std::string &gt; _paths) (defined in <a class="el" href="class_flat_file.html">FlatFile</a>)</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~CFlatFile</b>() (defined in <a class="el" href="class_flat_file.html">FlatFile</a>)</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_flat_file.html#a1aaacfd9085aab518ea0d07a0ccfdccb">build</a>()</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>CFeedFile</b>(const options_t &amp;_options) (defined in <a class="el" href="class_feed_file.html">FeedFile</a>)</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>CFlatFile</b>(std::vector&lt; std::string &gt; _paths, const options_t &amp;_options) (defined in <a class="el" href="class_flat_file.html">FlatFile</a>)</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_feed_file.html#a69feee332115b0f33a89c0214d47d564">dump_entries</a>()</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">m_entries</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">m_files</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#a0ec5a6608c3952343d668093f3784489">m_num_lines</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">m_options</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~CFeedFile</b>() (defined in <a class="el" href="class_feed_file.html">FeedFile</a>)</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>~CFlatFile</b>() (defined in <a class="el" href="class_flat_file.html">FlatFile</a>)</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 12 2016 20:54:35 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 13 2016 15:21:00 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
