@@ -52,6 +52,9 @@ bool CFlatFile::build() {
             std::cout << std::endl;
             u16_ifs.clear();
             u16_ifs.seekg(0, u16_ifs.beg);
+
+            start = std::clock();   // Start timer
+
             while(std::getline(u16_ifs, line)) {
                 m_entries.push_back(line);
                 m_num_lines++;
@@ -59,7 +62,11 @@ bool CFlatFile::build() {
                 show_progress(line.length());
             }
             print_meter_done();
+
+            dur = (std::clock() - start) / (double)CLOCKS_PER_SEC;  // Calculate duration of read
+
             if(m_options.use_details) std::cout << "\tlength:\t\t" << m_num_lines << " entries" << std::endl << std::endl;
+            std::cout << " Read time: " << std::fixed << std::setprecision(4) << dur << " seconds" << std::endl;
 
             /* This ensures if the process is successful
                 the user will know with a 100% regardless

@@ -11,7 +11,7 @@ var indexSectionsWithContent =
   1: "fgo",
   2: "cru",
   3: "bdiprsu",
-  4: "dfmu",
+  4: "dfmsu",
   5: "abcdmpt"
 };
 

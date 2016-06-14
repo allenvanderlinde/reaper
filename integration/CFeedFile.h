@@ -21,6 +21,7 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <ctime>
 #include <algorithm>
 
 #include "../headers/reaper.h"
@@ -65,9 +66,10 @@ public:
     inline void show_progress(const std::size_t &line_len) {
         static double chars = 0;
         static int meter_width = 70;
-        chars += (double)line_len;
+        static int digits = (int)log10(feed_bytes);
 
-        if((int)chars % (int)(10000 / 2) == 0) { /* Modulus by the # of digits in size
+        chars += (double)line_len;
+        if((int)chars % (int)(digits * 1000) == 0) { /* Modulus by the # of digits in size
                                                     of feed (divide by 2 for more percents). */
             std::cout << " [";
             double r = chars / feed_bytes;
@@ -75,7 +77,7 @@ public:
             for(int j = 0; j < meter_width; j++) {
                 if(j < n) std::cout << static_cast<char>(219);
                 else if(j == n) std::cout << static_cast<char>(219);
-                else std::cout << " ";
+                else std::cout << static_cast<char>(205);//" ";
             }
             std::cout << "] " << std::fixed << std::setprecision(0) << (r * 100.0) << "%\r";
             std::cout.flush();
@@ -109,6 +111,11 @@ protected:
     unsigned int feed_bytes;
     /** @brief Integer that keeps track of how many lines are processed. */
     unsigned int m_num_lines = 0;
+
+    /** @brief Timer/clock to measure duration of feed file read. */
+    std::clock_t start;
+    /** @brief Duration of a feed file read based on a std::clock_t timer. */
+    double dur;
 
     /** @brief Vector of remaining arguments after delimiter and details option chosen. */
     std::vector<std::string> m_files;
