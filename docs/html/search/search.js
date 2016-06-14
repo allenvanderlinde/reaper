@@ -10,8 +10,8 @@ var indexSectionsWithContent =
   0: "abcdfgimoprstu",
   1: "fgo",
   2: "cru",
-  3: "bdirsu",
-  4: "dmu",
+  3: "bdiprsu",
+  4: "dfmu",
   5: "abcdmpt"
 };
 

@@ -35,24 +35,37 @@ bool CFlatFile::build() {
         std::cout << " reaper: Unable to open file at: \"" << m_files[PATH_FEED_FILE] << "\"" << std::endl;
         return false;
     } else {
-        std::cout << " SUCCESS: Opened \"" << m_files[PATH_FEED_FILE] << "\"..." << std::endl;
+        std::cout << " SUCCESS: Opened \"" << m_files[PATH_FEED_FILE] << "\"" << std::endl;
+        /* Calculate physical size
+            of file. */
+        u16_ifs.seekg(0, u16_ifs.end);
+        feed_bytes = u16_ifs.tellg();
+        u16_ifs.seekg(0, u16_ifs.beg);
+        std::cout << std::endl << " Reading..." << std::endl;
         if(m_options.use_details) {
             std::cout << std::endl << " \ttype:\t\t" << THIS_FEED_TYPE << std::endl;
-            /* Calculate physical size
-                of file. */
-            u16_ifs.seekg(0, u16_ifs.end);
-            int len = u16_ifs.tellg();
-            u16_ifs.seekg(0, u16_ifs.beg);
-            std::cout << "\tfile size: \t" << len << " bytes: " << ((double)len / 1024) << "k: " << ((double)((double)len / 1024) / 1024) << "mb" << std::endl;
+            std::cout << "\tfile size: \t" << feed_bytes << " bytes: " << ((double)feed_bytes / 1024) << "k: " << std::fixed << std::setprecision(5) << ((double)((double)feed_bytes / 1024) / 1024) << "mb" << std::endl;
         }
         if(u16_ifs.is_open()) {
             /* Build the entries vector from each line
                 in the feed file via a loop. */
+            std::cout << std::endl;
+            u16_ifs.clear();
+            u16_ifs.seekg(0, u16_ifs.beg);
             while(std::getline(u16_ifs, line)) {
                 m_entries.push_back(line);
                 m_num_lines++;
+
+                show_progress(line.length());
             }
-            if(m_options.use_details) std::cout << "\tlength:\t\t" << m_num_lines << " entries" << std::endl;
+            print_meter_done();
+            if(m_options.use_details) std::cout << "\tlength:\t\t" << m_num_lines << " entries" << std::endl << std::endl;
+
+            /* This ensures if the process is successful
+                the user will know with a 100% regardless
+                of the float interval in progress_pcent(). */
+            //std::cout << " READING: 100%" << std::endl;
+
             if(m_options.dump_entries) dump_entries();
             std::cout << std::endl;
 

@@ -15,10 +15,12 @@
 #define _CFEEDFILE_H_
 
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
 #include <string>
 #include <vector>
+#include <cmath>
 #include <algorithm>
 
 #include "../headers/reaper.h"
@@ -53,6 +55,46 @@ public:
         }
     }
 
+    /**
+     * @brief Display a progress indicator (e.g., percentage) when
+     * building the feed file object. ASCII characters are used here
+     * to represent the "bar". Meter width is hard-coded.
+     * @param[in] line_len The number of characters currently read to
+     * divide by the size of the feed. That number * 100 equals the %.
+     */
+    inline void show_progress(const std::size_t &line_len) {
+        static double chars = 0;
+        static int meter_width = 70;
+        chars += (double)line_len;
+
+        if((int)chars % (int)(10000 / 2) == 0) { /* Modulus by the # of digits in size
+                                                    of feed (divide by 2 for more percents). */
+            std::cout << " [";
+            double r = chars / feed_bytes;
+            int n = (int)(r * meter_width);
+            for(int j = 0; j < meter_width; j++) {
+                if(j < n) std::cout << static_cast<char>(219);
+                else if(j == n) std::cout << static_cast<char>(219);
+                else std::cout << " ";
+            }
+            std::cout << "] " << std::fixed << std::setprecision(0) << (r * 100.0) << "%\r";
+            std::cout.flush();
+        }
+    }
+
+    /**
+     * @brief This just prints a finished 100% meter for the user after
+     * reading.
+     */
+    inline void print_meter_done() {
+        std::cout << " [";
+        for(int i = 0; i < 69; i++) {
+            std::cout << static_cast<char>(219);
+        }
+        std::cout << "] 100%";
+        std::cout << std::endl << std::endl;
+    }
+
 protected:
     /**
      * @brief Virtual function for derived classes' build operation.
@@ -63,6 +105,8 @@ protected:
     /** @brief Structure of options passed from CReaperSession to specify special actions. */
     options_t m_options;
 
+    /** @brief Size in bytes of feed file. */
+    unsigned int feed_bytes;
     /** @brief Integer that keeps track of how many lines are processed. */
     unsigned int m_num_lines = 0;
 

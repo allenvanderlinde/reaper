@@ -111,6 +111,13 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a69feee332115b0f33a89c0214d47d564">dump_entries</a> ()</td></tr>
 <tr class="memdesc:a69feee332115b0f33a89c0214d47d564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump contents of entries vector to a plain text file essentially as a copy to test if UTF-8 characters or other features of the source file remain intact from reaper's storage. <br /></td></tr>
 <tr class="separator:a69feee332115b0f33a89c0214d47d564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa19aa94cd2354315321b7d7bf215af44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#aa19aa94cd2354315321b7d7bf215af44">show_progress</a> (const std::size_t &amp;line_len)</td></tr>
+<tr class="memdesc:aa19aa94cd2354315321b7d7bf215af44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a progress indicator (e.g., percentage) when building the feed file object. ASCII characters are used here to represent the "bar". Meter width is hard-coded.  <a href="#aa19aa94cd2354315321b7d7bf215af44">More...</a><br /></td></tr>
+<tr class="separator:aa19aa94cd2354315321b7d7bf215af44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f880713d1da6526ff3ad3d20cf1fe5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f880713d1da6526ff3ad3d20cf1fe5e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">print_meter_done</a> ()</td></tr>
+<tr class="memdesc:a1f880713d1da6526ff3ad3d20cf1fe5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This just prints a finished 100% meter for the user after reading. <br /></td></tr>
+<tr class="separator:a1f880713d1da6526ff3ad3d20cf1fe5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -124,6 +131,10 @@ Protected Attributes</h2></td></tr>
 <a class="el" href="structoptions__t.html">options_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">m_options</a></td></tr>
 <tr class="memdesc:a77a5e73d2b2d12543c67b12b05af76b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure of options passed from CReaperSession to specify special actions. <br /></td></tr>
 <tr class="separator:a77a5e73d2b2d12543c67b12b05af76b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4076a63e6005405d591d583716b114d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4076a63e6005405d591d583716b114d"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#ab4076a63e6005405d591d583716b114d">feed_bytes</a></td></tr>
+<tr class="memdesc:ab4076a63e6005405d591d583716b114d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size in bytes of feed file. <br /></td></tr>
+<tr class="separator:ab4076a63e6005405d591d583716b114d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ec5a6608c3952343d668093f3784489"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ec5a6608c3952343d668093f3784489"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a0ec5a6608c3952343d668093f3784489">m_num_lines</a> = 0</td></tr>
 <tr class="memdesc:a0ec5a6608c3952343d668093f3784489"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer that keeps track of how many lines are processed. <br /></td></tr>
@@ -171,13 +182,45 @@ std::vector&lt; std::wstring &gt;&#160;</td><td class="memItemRight" valign="bot
 
 </div>
 </div>
+<a class="anchor" id="aa19aa94cd2354315321b7d7bf215af44"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FeedFile::show_progress </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t &amp;&#160;</td>
+          <td class="paramname"><em>line_len</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display a progress indicator (e.g., percentage) when building the feed file object. ASCII characters are used here to represent the "bar". Meter width is hard-coded. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">line_len</td><td>The number of characters currently read to divide by the size of the feed. That number * 100 equals the %. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>integration/<a class="el" href="_c_feed_file_8h_source.html">CFeedFile.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 13 2016 15:21:00 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 14 2016 04:00:39 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

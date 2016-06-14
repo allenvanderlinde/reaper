@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_960c41b21ac19cffb89ee641bb6152a5.html">headers</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6b2b3d53d55e41512fe366257802d9ae.html">headers</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -125,29 +125,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    SetConsoleCursorPosition(hConsole, zerozero);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="util_8h.html#a02956dcd3b77093eeb49f3b3974c0f32">   52</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="util_8h.html#a02956dcd3b77093eeb49f3b3974c0f32">util_ShowProgress</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    std::cout &lt;&lt; std::endl;   <span class="comment">// New line if necessary</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">float</span> progress = 0.0f; <span class="comment">/* We use a float for the model to control iteration speed.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">                                A real progress int or float should iterate to 100% only</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">                                when an actual computational cycle is completed. The weight</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">                                of the computation naturally controls iteration speed. */</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">while</span>(progress &lt;= 1.0f) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; (int)(progress * 100.0f) &lt;&lt; <span class="stringliteral">&quot;%\r&quot;</span>;   <span class="comment">// Rudimentary formatting; easily modified</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        std::cout.flush();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        progress += 0.001f; <span class="comment">// Trivial iteration. This forces the loop to cycle 10,000 times</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot; 100%&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // _UTIL_H_</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // _UTIL_H_</span></div>
 <div class="ttc" id="util_8h_html_a3ddf44fb1380c01ac168f12644d4c8b5"><div class="ttname"><a href="util_8h.html#a3ddf44fb1380c01ac168f12644d4c8b5">util_ClearConsole</a></div><div class="ttdeci">void util_ClearConsole()</div><div class="ttdoc">This function traverses each cell of the console and replaces it with a space, effectively clearing t...</div><div class="ttdef"><b>Definition:</b> util.h:24</div></div>
-<div class="ttc" id="util_8h_html_a02956dcd3b77093eeb49f3b3974c0f32"><div class="ttname"><a href="util_8h.html#a02956dcd3b77093eeb49f3b3974c0f32">util_ShowProgress</a></div><div class="ttdeci">void util_ShowProgress(void)</div><div class="ttdoc">Display a simple progress percentage. Currently only a model with contrived percentage iterations...</div><div class="ttdef"><b>Definition:</b> util.h:52</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 13 2016 15:21:00 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 14 2016 04:00:39 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

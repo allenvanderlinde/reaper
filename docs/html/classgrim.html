@@ -105,9 +105,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af9e9f26953e4bead3e139f470ac515a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgrim.html#af9e9f26953e4bead3e139f470ac515a5">store_args</a> (char *_argv[])</td></tr>
 <tr class="memdesc:af9e9f26953e4bead3e139f470ac515a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store arguments passed into the command line.  <a href="#af9e9f26953e4bead3e139f470ac515a5">More...</a><br /></td></tr>
 <tr class="separator:af9e9f26953e4bead3e139f470ac515a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82924af3140083bc851bb1c93ff034df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgrim.html#a82924af3140083bc851bb1c93ff034df">reap</a> (const std::string &amp;_file_path, const int &amp;feed_type)</td></tr>
-<tr class="memdesc:a82924af3140083bc851bb1c93ff034df"><td class="mdescLeft">&#160;</td><td class="mdescRight">The beginning of primary processing. Open a file and parse each line into the object's vector.  <a href="#a82924af3140083bc851bb1c93ff034df">More...</a><br /></td></tr>
-<tr class="separator:a82924af3140083bc851bb1c93ff034df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64a348521ccff4c035f693a0027cfa33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgrim.html#a64a348521ccff4c035f693a0027cfa33">reap</a> (const int &amp;feed_type)</td></tr>
+<tr class="memdesc:a64a348521ccff4c035f693a0027cfa33"><td class="mdescLeft">&#160;</td><td class="mdescRight">The beginning of primary processing. Open a file and parse each line into the object's vector.  <a href="#a64a348521ccff4c035f693a0027cfa33">More...</a><br /></td></tr>
+<tr class="separator:a64a348521ccff4c035f693a0027cfa33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ee4556520039ebd60b872ae1a5606cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgrim.html#a9ee4556520039ebd60b872ae1a5606cd">using_details</a> ()</td></tr>
 <tr class="memdesc:a9ee4556520039ebd60b872ae1a5606cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Are details being displayed?  <a href="#a9ee4556520039ebd60b872ae1a5606cd">More...</a><br /></td></tr>
 <tr class="separator:a9ee4556520039ebd60b872ae1a5606cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,26 +212,16 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a82924af3140083bc851bb1c93ff034df"></a>
+<a class="anchor" id="a64a348521ccff4c035f693a0027cfa33"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void grim::reap </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>_file_path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>feed_type</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>feed_type</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -239,7 +229,6 @@ Public Member Functions</h2></td></tr>
 <p>The beginning of primary processing. Open a file and parse each line into the object's vector. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_file_path</td><td>String which represents the directory path to the feed file. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">feed_type</td><td>A string representing the kind of feed file being used based on the integration. </td></tr>
   </table>
   </dd>
@@ -314,7 +303,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 13 2016 15:21:00 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 14 2016 04:00:39 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

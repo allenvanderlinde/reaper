@@ -54,8 +54,6 @@ public:
     /**
      * @brief The beginning of primary processing. Open a file
      * and parse each line into the object's vector.
-     * @param[in] _file_path String which represents the directory
-     * path to the feed file.
      * @param[in] feed_type A string representing the kind of feed
      * file being used based on the integration.
      */
