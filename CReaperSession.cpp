@@ -12,6 +12,7 @@
 
 #include "headers/reaper.h"
 #include "headers/CReaperSession.h"
+#include "version.h"
 
 CReaperSession::CReaperSession(const int &_argc,
                                char* _argv[]) {
@@ -43,8 +44,8 @@ CReaperSession::CReaperSession(const int &_argc,
     std::cout << "\t" << "        \\/        \\/         \\/                 \\/         \\/" << std::endl << std::endl;
     std::cout << "\t" << " Build useful HTML pages which describe, organize, and provide\n\t    various metadata about feed files for SIS integrations." << std::endl << std::endl;
     std::cout << "------------------------------------------------------------------------------" << std::endl;
-    std::cout << " reaper.exe Version: " << VERSION << "\t\tCopyleft (C) 2016 by Allen Vanderlinde" << std::endl << std::endl;
-    std::cout << " Currently supports only:\n Blackboard Learn Snapshot Flat Files" << std::endl << std::endl;
+    std::cout << " reaper.exe Version: " << AutoVersion::STATUS_SHORT << AutoVersion::FULLVERSION_STRING << "\tCopyleft (C) 2016 by Allen Vanderlinde" << std::endl << std::endl;
+    std::cout << " Currently supports:\n Blackboard Learn Snapshot Flat Files" << std::endl << std::endl;
     std::cout << " Default delimiter is " << '|' << std::endl;
     std::cout << "------------------------------------------------------------------------------" << std::endl << std::endl;
 
@@ -52,6 +53,8 @@ CReaperSession::CReaperSession(const int &_argc,
 }
 
 CReaperSession::~CReaperSession() {
+    m_args.clear();
+    m_paths.clear();
 }
 
 bool CReaperSession::ready(const int &_argc,
@@ -94,7 +97,7 @@ bool CReaperSession::read_args(char* _argv[]) {
         std::use_facet<std::ctype<char>>(std::locale()).toupper(&current_argument[0], &current_argument[0] + current_argument.length());
 
         if(current_argument.compare(DISP_DETAILS) == MATCH) {   /* Do any arguments match reaper's options? */
-            m_details = true;
+            options.use_details = true;
         } else if(current_argument.compare(ARG_PIPE) == MATCH) {
             if(!delim_found) {
                 delim_found = true;
@@ -109,12 +112,14 @@ bool CReaperSession::read_args(char* _argv[]) {
             m_paths[PATH_FEED_FILE] = _argv[i + 2];
         } else if(current_argument.compare(ARG_OUTPUT_FILE) == MATCH) { // The next argument in the array should be the path of the feed file
             m_paths[PATH_OUTPUT_FILE] = _argv[i + 2];
+        } else if(current_argument.compare(ARG_DUMP) == MATCH) {    // Dump stored entries to file for testing after reading source
+            options.dump_entries = true;
         }
         // NOTE: IF AN OUTPUT FILE IS NOT SPECIFIED THE OUTPUT FILE WILL BY DEFAULT BE {FEED FILE}.html //
     }
 
     std::cout << " Using delimiter: " << m_delim << std::endl << std::endl;   // Default is |
-    if(m_details) {
+    if(options.use_details) {
         std::cout << " Displaying details" << std::endl;
     }
     std::cout << std::endl << " Starting..." << std::endl;
@@ -125,33 +130,31 @@ bool CReaperSession::read_args(char* _argv[]) {
         std::cout << std::endl << " reaper.exe: Reaper was unable to process your arguments." << std::endl;
         return false;
     }
-    if(m_details) std::cout << std::endl << " SUCCESS: Arguments stored" << std::endl << std::endl;
-    else std::cout << " SUCCESS: Arguments stored" << std::endl;
+    if(options.use_details) std::cout << std::endl << " SUCCESS: " << m_argc << " arguments stored" << std::endl << std::endl;
+    else std::cout << " SUCCESS: " << m_argc << " arguments stored" << std::endl;
 
     return true;
 }
 
 bool CReaperSession::store_args(char* _argv[]) {
-    if(m_details) {
+    if(options.use_details) {
         std::cout << std::endl << "\tARGUMENT DETAILS:" << std::endl << std::endl;
-        std::cout << "\t\targuments: " << m_argc << std::endl;
     }
     for(int i = 0; i < m_argc; i++) {
         m_args.push_back(_argv[i + 1]);
-        if(m_details) std::cout << "\t\targ[" << i << "]: \"" << m_args[i] << "\"" << std::endl;
+        if(options.use_details) std::cout << "\t\targ[" << i << "]: \"" << m_args[i] << "\"" << std::endl;
     }
     return true;
 }
 
-void CReaperSession::reap(const std::string &_file_path,
-                          const int &feed_type) {
+void CReaperSession::reap(const int &feed_type) {
     std::cout << " Opening \"" << m_paths[PATH_FEED_FILE] << "\"..." << std::endl;
 
     switch(feed_type) {
     case BB_FLAT_FILE:
-        ff = new FlatFile();
-        if(ff->build(m_paths[PATH_FEED_FILE], m_details)) {
-            std::cout << " reaper.exe: FATAL: Unable to build integration feed file object.";
+        ff = new FlatFile(m_paths, options);
+        if(!ff->build()) {
+            std::cout << " reaper.exe: FATAL: Unable to build integration feed file object." << std::endl;
             return;
         }
 

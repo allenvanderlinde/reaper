@@ -20,6 +20,7 @@
 #include <vector>
 #include <algorithm>
 
+#include "reaper.h"
 #include "../integration/bb_learn/headers/CFlatFile.h"
 
 class CReaperSession {
@@ -53,19 +54,16 @@ public:
     /**
      * @brief The beginning of primary processing. Open a file
      * and parse each line into the object's vector.
-     * @param[in] _file_path String which represents the directory
-     * path to the feed file.
      * @param[in] feed_type A string representing the kind of feed
      * file being used based on the integration.
      */
-    void reap(const std::string &_file_path,
-              const int &feed_type);
+    void reap(const int &feed_type);
 
     /**
      * @brief Are details being displayed?
      * @retval bool Yes or no.
      */
-    bool using_details() { return m_details; }
+    bool using_details() { return options.use_details; }
     /**
      * @brief Is reaper ready to run?
      * @retval bool Yes or no.
@@ -75,8 +73,9 @@ public:
 private:
     /** @brief Tells main thread if this object was instantiated successfully. */
     bool m_ready = false;
-    /** @brief Display detailed actions of this object during runtime. */
-    bool m_details = false;
+    /** @brief Structure of reaper options to use during runtime. */
+    options_t options;
+
     /** @brief Number of arguments passed into the command line. */
     int m_argc;
     /** @brief The actual character identifying the delimiter when it's found. */

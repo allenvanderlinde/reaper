@@ -39,7 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -64,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,55 +90,103 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">FlatFile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for FlatFile:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_flat_file.png" usemap="#FlatFile_map" alt=""/>
+  <map id="FlatFile_map" name="FlatFile_map">
+<area href="class_feed_file.html" alt="FeedFile" shape="rect" coords="0,0,62,24"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aada6aab69aedcc837c23c4216081e31f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aada6aab69aedcc837c23c4216081e31f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CFlatFile</b> ()</td></tr>
-<tr class="separator:aada6aab69aedcc837c23c4216081e31f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4d6c9c094e22d730e82d4b844b7abab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flat_file.html#aa4d6c9c094e22d730e82d4b844b7abab">build</a> (const std::string &amp;_file_path, const bool &amp;_details)</td></tr>
-<tr class="memdesc:aa4d6c9c094e22d730e82d4b844b7abab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a Snapshot Flat File from specified filed.  <a href="#aa4d6c9c094e22d730e82d4b844b7abab">More...</a><br /></td></tr>
-<tr class="separator:aa4d6c9c094e22d730e82d4b844b7abab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ee1f93cc7d9a26e9a13f126fd50b9bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ee1f93cc7d9a26e9a13f126fd50b9bd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CFlatFile</b> (std::vector&lt; std::string &gt; _paths, const <a class="el" href="structoptions__t.html">options_t</a> &amp;_options)</td></tr>
+<tr class="separator:a3ee1f93cc7d9a26e9a13f126fd50b9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aaacfd9085aab518ea0d07a0ccfdccb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_flat_file.html#a1aaacfd9085aab518ea0d07a0ccfdccb">build</a> ()</td></tr>
+<tr class="memdesc:a1aaacfd9085aab518ea0d07a0ccfdccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a Snapshot Flat File from specified filed.  <a href="#a1aaacfd9085aab518ea0d07a0ccfdccb">More...</a><br /></td></tr>
+<tr class="separator:a1aaacfd9085aab518ea0d07a0ccfdccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_feed_file"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_feed_file')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_feed_file.html">FeedFile</a></td></tr>
+<tr class="memitem:a2d9a83ca8dffa57ba4ef7fd1ee4838f0 inherit pub_methods_class_feed_file"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d9a83ca8dffa57ba4ef7fd1ee4838f0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CFeedFile</b> (const <a class="el" href="structoptions__t.html">options_t</a> &amp;_options)</td></tr>
+<tr class="separator:a2d9a83ca8dffa57ba4ef7fd1ee4838f0 inherit pub_methods_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69feee332115b0f33a89c0214d47d564 inherit pub_methods_class_feed_file"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69feee332115b0f33a89c0214d47d564"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a69feee332115b0f33a89c0214d47d564">dump_entries</a> ()</td></tr>
+<tr class="memdesc:a69feee332115b0f33a89c0214d47d564 inherit pub_methods_class_feed_file"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump contents of entries vector to a plain text file essentially as a copy to test if UTF-8 characters or other features of the source file remain intact from reaper's storage. <br /></td></tr>
+<tr class="separator:a69feee332115b0f33a89c0214d47d564 inherit pub_methods_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa19aa94cd2354315321b7d7bf215af44 inherit pub_methods_class_feed_file"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#aa19aa94cd2354315321b7d7bf215af44">show_progress</a> (const std::size_t &amp;line_len)</td></tr>
+<tr class="memdesc:aa19aa94cd2354315321b7d7bf215af44 inherit pub_methods_class_feed_file"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a progress indicator (e.g., percentage) when building the feed file object. ASCII characters are used here to represent the "bar". Meter width is hard-coded.  <a href="#aa19aa94cd2354315321b7d7bf215af44">More...</a><br /></td></tr>
+<tr class="separator:aa19aa94cd2354315321b7d7bf215af44 inherit pub_methods_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f880713d1da6526ff3ad3d20cf1fe5e inherit pub_methods_class_feed_file"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f880713d1da6526ff3ad3d20cf1fe5e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">print_meter_done</a> ()</td></tr>
+<tr class="memdesc:a1f880713d1da6526ff3ad3d20cf1fe5e inherit pub_methods_class_feed_file"><td class="mdescLeft">&#160;</td><td class="mdescRight">This just prints a finished 100% meter for the user after reading. <br /></td></tr>
+<tr class="separator:a1f880713d1da6526ff3ad3d20cf1fe5e inherit pub_methods_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_feed_file"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_feed_file')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_feed_file.html">FeedFile</a></td></tr>
+<tr class="memitem:a77a5e73d2b2d12543c67b12b05af76b3 inherit pro_attribs_class_feed_file"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77a5e73d2b2d12543c67b12b05af76b3"></a>
+<a class="el" href="structoptions__t.html">options_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">m_options</a></td></tr>
+<tr class="memdesc:a77a5e73d2b2d12543c67b12b05af76b3 inherit pro_attribs_class_feed_file"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure of options passed from CReaperSession to specify special actions. <br /></td></tr>
+<tr class="separator:a77a5e73d2b2d12543c67b12b05af76b3 inherit pro_attribs_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4076a63e6005405d591d583716b114d inherit pro_attribs_class_feed_file"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4076a63e6005405d591d583716b114d"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#ab4076a63e6005405d591d583716b114d">feed_bytes</a></td></tr>
+<tr class="memdesc:ab4076a63e6005405d591d583716b114d inherit pro_attribs_class_feed_file"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size in bytes of feed file. <br /></td></tr>
+<tr class="separator:ab4076a63e6005405d591d583716b114d inherit pro_attribs_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ec5a6608c3952343d668093f3784489 inherit pro_attribs_class_feed_file"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ec5a6608c3952343d668093f3784489"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a0ec5a6608c3952343d668093f3784489">m_num_lines</a> = 0</td></tr>
+<tr class="memdesc:a0ec5a6608c3952343d668093f3784489 inherit pro_attribs_class_feed_file"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer that keeps track of how many lines are processed. <br /></td></tr>
+<tr class="separator:a0ec5a6608c3952343d668093f3784489 inherit pro_attribs_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed3f137f4c33c617b32f6d5ba44c9765 inherit pro_attribs_class_feed_file"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed3f137f4c33c617b32f6d5ba44c9765"></a>
+std::clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#aed3f137f4c33c617b32f6d5ba44c9765">start</a></td></tr>
+<tr class="memdesc:aed3f137f4c33c617b32f6d5ba44c9765 inherit pro_attribs_class_feed_file"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer/clock to measure duration of feed file read. <br /></td></tr>
+<tr class="separator:aed3f137f4c33c617b32f6d5ba44c9765 inherit pro_attribs_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4705e0c87dea300f32000884ddfbf51 inherit pro_attribs_class_feed_file"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4705e0c87dea300f32000884ddfbf51"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#ac4705e0c87dea300f32000884ddfbf51">dur</a></td></tr>
+<tr class="memdesc:ac4705e0c87dea300f32000884ddfbf51 inherit pro_attribs_class_feed_file"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration of a feed file read based on a std::clock_t timer. <br /></td></tr>
+<tr class="separator:ac4705e0c87dea300f32000884ddfbf51 inherit pro_attribs_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd1e278ce06a454d30444ccdef83f465 inherit pro_attribs_class_feed_file"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd1e278ce06a454d30444ccdef83f465"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">m_files</a></td></tr>
+<tr class="memdesc:afd1e278ce06a454d30444ccdef83f465 inherit pro_attribs_class_feed_file"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of remaining arguments after delimiter and details option chosen. <br /></td></tr>
+<tr class="separator:afd1e278ce06a454d30444ccdef83f465 inherit pro_attribs_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e590fb0c14b57417ddb98847df1626 inherit pro_attribs_class_feed_file"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60e590fb0c14b57417ddb98847df1626"></a>
+std::vector&lt; std::wstring &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">m_entries</a></td></tr>
+<tr class="memdesc:a60e590fb0c14b57417ddb98847df1626 inherit pro_attribs_class_feed_file"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of entries read from file line-by-line. <br /></td></tr>
+<tr class="separator:a60e590fb0c14b57417ddb98847df1626 inherit pro_attribs_class_feed_file"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa4d6c9c094e22d730e82d4b844b7abab"></a>
+<a class="anchor" id="a1aaacfd9085aab518ea0d07a0ccfdccb"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool FlatFile::build </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>_file_path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const bool &amp;&#160;</td>
-          <td class="paramname"><em>_details</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Build a Snapshot Flat File from specified filed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_file_path</td><td>Path to feed file. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_details</td><td>Should details be printed about this build? </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">bool</td><td>True if object is built. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Implements <a class="el" href="class_feed_file.html#a5dbeec7d694d6f0a4a05c2e3e929bd6c">FeedFile</a>.</p>
 
 </div>
 </div>
@@ -148,7 +196,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 11 2016 05:42:26 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 14 2016 17:27:27 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

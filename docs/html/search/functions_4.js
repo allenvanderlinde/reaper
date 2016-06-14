@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['using_5fdetails',['using_details',['../classgrim.html#a9ee4556520039ebd60b872ae1a5606cd',1,'grim']]],
-  ['utilclearconsole',['utilClearConsole',['../util_8h.html#ad09a0822cf65eb18d847e67f9033922b',1,'util.h']]]
+  ['read_5fargs',['read_args',['../classgrim.html#abc9010850af30a10cec2526e80278e7a',1,'grim']]],
+  ['ready',['ready',['../classgrim.html#a21759648ac61fec214e718614b878d1a',1,'grim']]],
+  ['reap',['reap',['../classgrim.html#a64a348521ccff4c035f693a0027cfa33',1,'grim']]]
 ];

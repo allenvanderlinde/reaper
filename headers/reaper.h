@@ -14,13 +14,11 @@
 #ifndef _REAPER_H_
 #define _REAPER_H_
 
-/** @brief Arbitrary version information (for now). */
-#define VERSION "0.1"
 /** @brief String of currently supported SIS integration feed types. */
-#define CURRENTLY_SUPPORTED "-> Blackboard Learn (v.9.1) Snapshot Flat File (plain text)"
+#define CURRENTLY_SUPPORTED "-> Blackboard Learn (9.1+) Snapshot Flat File (plain text)"
 
 /** @brief Maximum number of arguments allowed. */
-#define MAX_ARGS 6
+#define MAX_ARGS 7
 /** @brief Minimum number of arguments allowed. */
 #define MIN_ARGS 2
 /** @brief Specifies that the next argument is the feed file. */
@@ -33,6 +31,8 @@
 #define ARG_COMMA "-C"
 /** @brief Delimiter option specified to be a pipe. */
 #define ARG_PIPE "-P"
+/** @brief Option to dump contents stored in entries vector to file for testing. */
+#define ARG_DUMP "-D"
 /** @brief Option to display which SIS integration feed types reaper supports. */
 #define ARG_SUPPORTS "-SUPPORTS"
 
@@ -42,6 +42,14 @@
 #define PIPE "|"
 /** @brief Human readable replacement for 0 when comparing strings. */
 #define MATCH 0
+
+/** @brief Structure of options passed between objects. */
+struct reaper_options {
+    /** @brief Display details during execution. */
+    bool use_details        = false;
+    /** @brief Dump entries from feed's vector to new file. */
+    bool dump_entries       = false;
+} typedef options_t;
 
 /** @brief Enumeration used to identify index of certain file paths in
  *  CReaperSession::paths vector.

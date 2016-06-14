@@ -39,7 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -64,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li class="current"><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -71,6 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -79,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,10 +92,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div><ul>
 <li>build()
-: <a class="el" href="class_flat_file.html#aa4d6c9c094e22d730e82d4b844b7abab">FlatFile</a>
+: <a class="el" href="class_feed_file.html#a5dbeec7d694d6f0a4a05c2e3e929bd6c">FeedFile</a>
+, <a class="el" href="class_flat_file.html#a1aaacfd9085aab518ea0d07a0ccfdccb">FlatFile</a>
+</li>
+<li>dump_entries()
+: <a class="el" href="class_feed_file.html#a69feee332115b0f33a89c0214d47d564">FeedFile</a>
+, <a class="el" href="structoptions__t.html#ac2122d04c1991c33ec8955bf9ddff511">options_t</a>
+</li>
+<li>dur
+: <a class="el" href="class_feed_file.html#ac4705e0c87dea300f32000884ddfbf51">FeedFile</a>
+</li>
+<li>feed_bytes
+: <a class="el" href="class_feed_file.html#ab4076a63e6005405d591d583716b114d">FeedFile</a>
 </li>
 <li>is_ready()
 : <a class="el" href="classgrim.html#a6c174bdfce481eb97bc7f69af55b24d0">grim</a>
+</li>
+<li>m_entries
+: <a class="el" href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">FeedFile</a>
+</li>
+<li>m_files
+: <a class="el" href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">FeedFile</a>
+</li>
+<li>m_num_lines
+: <a class="el" href="class_feed_file.html#a0ec5a6608c3952343d668093f3784489">FeedFile</a>
+</li>
+<li>m_options
+: <a class="el" href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">FeedFile</a>
+</li>
+<li>print_meter_done()
+: <a class="el" href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">FeedFile</a>
 </li>
 <li>read_args()
 : <a class="el" href="classgrim.html#abc9010850af30a10cec2526e80278e7a">grim</a>
@@ -103,10 +130,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classgrim.html#a21759648ac61fec214e718614b878d1a">grim</a>
 </li>
 <li>reap()
-: <a class="el" href="classgrim.html#a82924af3140083bc851bb1c93ff034df">grim</a>
+: <a class="el" href="classgrim.html#a64a348521ccff4c035f693a0027cfa33">grim</a>
+</li>
+<li>show_progress()
+: <a class="el" href="class_feed_file.html#aa19aa94cd2354315321b7d7bf215af44">FeedFile</a>
+</li>
+<li>start
+: <a class="el" href="class_feed_file.html#aed3f137f4c33c617b32f6d5ba44c9765">FeedFile</a>
 </li>
 <li>store_args()
 : <a class="el" href="classgrim.html#af9e9f26953e4bead3e139f470ac515a5">grim</a>
+</li>
+<li>use_details
+: <a class="el" href="structoptions__t.html#ad4e691e2e7cc32965b03d44d79665f4d">options_t</a>
 </li>
 <li>using_details()
 : <a class="el" href="classgrim.html#a9ee4556520039ebd60b872ae1a5606cd">grim</a>
@@ -115,7 +151,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 11 2016 05:42:26 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 14 2016 17:27:27 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

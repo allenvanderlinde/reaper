@@ -7,12 +7,12 @@
 
 var indexSectionsWithContent =
 {
-  0: "abcdfgimprsuv",
-  1: "fg",
+  0: "abcdfgimoprstu",
+  1: "fgo",
   2: "cru",
-  3: "birsu",
-  4: "abcdmpv",
-  5: "r"
+  3: "bdiprsu",
+  4: "dfmsu",
+  5: "abcdmpt"
 };
 
 var indexSectionNames =
@@ -21,8 +21,8 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "defines",
-  5: "pages"
+  4: "variables",
+  5: "defines"
 };
 
 function convertToId(search)

@@ -14,38 +14,26 @@
 #ifndef _CFLATFILE_H_
 #define _CFLATFILE_H_
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <algorithm>
+#include "../../CFeedFile.h"
 
-class CFlatFile {
+/** @brief Describes the feed file type of this particular derived class. */
+#define THIS_FEED_TYPE "Snapshot Flat File"
+
+class CFlatFile : public FeedFile {
 public:
-    CFlatFile();
+    /* Receives validated file paths when
+        reaper determines to build this object. */
+    CFlatFile(std::vector<std::string> _paths,
+              const options_t &_options);
     ~CFlatFile();
 
     /**
      * @brief Build a Snapshot Flat File from specified filed.
-     * @param[in] _file_path Path to feed file.
-     * @param[in] _details Should details be printed about this build?
      * @retval bool True if object is built.
      */
-    bool build(const std::string &_file_path,
-               const bool &_details);
+    bool build();
 
 private:
-    /** @brief Integer that keeps track of how many lines are processed. */
-    unsigned int m_num_lines = 0;
-    /** @brief Display detailed actions of this object during runtime.
-     *  CReaperSession passes its value of details to this object.
-     */
-    bool m_details;
-    /** @brief Vector of remaining arguments after delimiter and details option chosen. */
-    std::vector<std::string> m_files;
-
-    /** @brief Vector of entries read from file line-by-line. */
-    std::vector<std::string> m_entries;
 
 } typedef FlatFile;
 

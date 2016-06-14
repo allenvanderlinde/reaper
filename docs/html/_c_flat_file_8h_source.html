@@ -39,7 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -71,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4b4515d22de26e4a55f8eab5b262fe4b.html">integration</a></li><li class="navelem"><a class="el" href="dir_0fa07da55be236d59a17c83c5cbf07c0.html">bb_learn</a></li><li class="navelem"><a class="el" href="dir_0efd61e09dd567c6d7375b63da035f1f.html">headers</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6d09689aa6e3efda3a522cacadbe8517.html">integration</a></li><li class="navelem"><a class="el" href="dir_f7d691b63bc9d94653e47c1bdcba2b60.html">bb_learn</a></li><li class="navelem"><a class="el" href="dir_56d23e14db785ca33cf2e9918f34d7e7.html">headers</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -100,35 +99,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef _CFLATFILE_H_</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define _CFLATFILE_H_</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_flat_file.html">   23</a></span>&#160;<span class="keyword">class </span>CFlatFile {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    CFlatFile();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ~CFlatFile();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> build(<span class="keyword">const</span> std::string &amp;_file_path,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;               <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;_details);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_num_lines = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">bool</span> m_details;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::vector&lt;std::string&gt; m_files;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::vector&lt;std::string&gt; m_entries;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="keyword">typedef</span> <a class="code" href="class_flat_file.html">FlatFile</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif // _CFLATFILE_H_</span></div>
-<div class="ttc" id="class_flat_file_html"><div class="ttname"><a href="class_flat_file.html">FlatFile</a></div><div class="ttdef"><b>Definition:</b> CFlatFile.h:23</div></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../../CFeedFile.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="_c_flat_file_8h.html#a5a4a7c912c970e38474ba55de5c64fba">   20</a></span>&#160;<span class="preprocessor">#define THIS_FEED_TYPE &quot;Snapshot Flat File&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_flat_file.html">   22</a></span>&#160;<span class="keyword">class </span>CFlatFile : <span class="keyword">public</span> <a class="code" href="class_feed_file.html">FeedFile</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">/* Receives validated file paths when</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">        reaper determines to build this object. */</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    CFlatFile(std::vector&lt;std::string&gt; _paths,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;              <span class="keyword">const</span> <a class="code" href="structoptions__t.html">options_t</a> &amp;_options);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ~CFlatFile();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_feed_file.html#a5dbeec7d694d6f0a4a05c2e3e929bd6c">build</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;} <span class="keyword">typedef</span> <a class="code" href="class_flat_file.html">FlatFile</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif // _CFLATFILE_H_</span></div>
+<div class="ttc" id="structoptions__t_html"><div class="ttname"><a href="structoptions__t.html">options_t</a></div><div class="ttdoc">Structure of options passed between objects. </div><div class="ttdef"><b>Definition:</b> reaper.h:47</div></div>
+<div class="ttc" id="class_flat_file_html"><div class="ttname"><a href="class_flat_file.html">FlatFile</a></div><div class="ttdef"><b>Definition:</b> CFlatFile.h:22</div></div>
+<div class="ttc" id="class_feed_file_html"><div class="ttname"><a href="class_feed_file.html">FeedFile</a></div><div class="ttdef"><b>Definition:</b> CFeedFile.h:29</div></div>
+<div class="ttc" id="class_feed_file_html_a5dbeec7d694d6f0a4a05c2e3e929bd6c"><div class="ttname"><a href="class_feed_file.html#a5dbeec7d694d6f0a4a05c2e3e929bd6c">FeedFile::build</a></div><div class="ttdeci">virtual bool build()=0</div><div class="ttdoc">Virtual function for derived classes&#39; build operation. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 11 2016 05:42:26 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 14 2016 17:27:27 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
