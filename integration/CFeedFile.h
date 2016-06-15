@@ -44,6 +44,8 @@ public:
         dump_file_path = m_files[PATH_FEED_FILE].substr(0, m_files[PATH_FEED_FILE].find_first_of('.', 0));
         dump_file_path += "_dumped.txt";
 
+        std::cout << std::endl << " Dumping feed..." << std::endl;
+
         std::wofstream out(dump_file_path, std::ios::out);
         if(out) {
             if(out.is_open()) {

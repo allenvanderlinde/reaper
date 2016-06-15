@@ -37,7 +37,7 @@ void test_output(std::string file) {
 }
 
 int main(int argc, char* argv[]) {
-    util_ClearConsole();
+    //util_ClearConsole();
     /* Build new reaper
         object. */
     grim* reaper = new grim(argc, argv);

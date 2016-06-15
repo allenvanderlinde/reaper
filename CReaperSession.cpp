@@ -44,8 +44,8 @@ CReaperSession::CReaperSession(const int &_argc,
     std::cout << "\t" << "        \\/        \\/         \\/                 \\/         \\/" << std::endl << std::endl;
     std::cout << "\t" << " Build useful HTML pages which describe, organize, and provide\n\t    various metadata about feed files for SIS integrations." << std::endl << std::endl;
     std::cout << "------------------------------------------------------------------------------" << std::endl;
-    std::cout << " reaper.exe Version: " << AutoVersion::STATUS_SHORT << AutoVersion::FULLVERSION_STRING << "\tCopyleft (C) 2016 by Allen Vanderlinde" << std::endl << std::endl;
-    std::cout << " Currently supports:\n Blackboard Learn Snapshot Flat Files" << std::endl << std::endl;
+    std::cout << " Version: alpha " << AutoVersion::FULLVERSION_STRING << "\tCopyleft (C) 2016 by Allen Vanderlinde" << std::endl << std::endl;
+    //std::cout << " Currently supports:\n Blackboard Learn Snapshot Flat Files" << std::endl << std::endl;
     std::cout << " Default delimiter is " << '|' << std::endl;
     std::cout << "------------------------------------------------------------------------------" << std::endl << std::endl;
 
