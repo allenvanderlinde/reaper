@@ -49,7 +49,7 @@ public:
         std::wofstream out(dump_file_path, std::ios::out);
         if(out) {
             if(out.is_open()) {
-                for_each(m_entries.begin(), m_entries.end(), [&out](std::wstring ws){ out << ws << std::endl; });
+                std::for_each(m_entries.begin(), m_entries.end(), [&out](std::wstring ws){ out << ws << std::endl; });
             }
             out.close();
             std::cout << std::endl << " reaper.exe: Successfully dumped entries into \"" << dump_file_path << "\"." << std::endl;

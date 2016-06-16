@@ -44,7 +44,7 @@ CReaperSession::CReaperSession(const int &_argc,
     std::cout << "\t" << "        \\/        \\/         \\/                 \\/         \\/" << std::endl << std::endl;
     std::cout << "\t" << " Build useful HTML pages which describe, organize, and provide\n\t    various metadata about feed files for SIS integrations." << std::endl << std::endl;
     std::cout << "------------------------------------------------------------------------------" << std::endl;
-    std::cout << " Version: alpha " << AutoVersion::FULLVERSION_STRING << "\tCopyleft (C) 2016 by Allen Vanderlinde" << std::endl << std::endl;
+    std::cout << " Version: alpha " << AutoVersion::FULLVERSION_STRING << "\t\tCopyleft (C) 2016 by Allen Vanderlinde" << std::endl << std::endl;
     //std::cout << " Currently supports:\n Blackboard Learn Snapshot Flat Files" << std::endl << std::endl;
     std::cout << " Default delimiter is " << '|' << std::endl;
     std::cout << "------------------------------------------------------------------------------" << std::endl << std::endl;
@@ -61,10 +61,10 @@ bool CReaperSession::ready(const int &_argc,
                            char* _argv[]) {
     m_argc = (_argc - 1); // Minus 1 because the first index of _argv[] will always be the name of the command
     if(m_argc < MIN_ARGS) {
-        std::cout << std::endl << " reaper.exe: Too few arguments. Minimum is " << MIN_ARGS << ".\n Usage -> -f *[FEED_FILE] -h [OUTPUT_FILE] {DELIMITER:-c,-p} {-details}" << std::endl;
+        std::cout << std::endl << " reaper.exe: Too few arguments. Minimum is " << MIN_ARGS << ".\n Usage -> -f *[FEED_FILE] -h [OUTPUT_FILE] {DELIMITER:-c,-p} {-details} {-supports}" << std::endl;
         return false;;
     } else if(m_argc > MAX_ARGS) {
-        std::cout << std::endl << " reaper.exe: Too many arguments. Maximum is " << MAX_ARGS << ".\n Usage -> -f *[FEED_FILE] -h [OUTPUT_FILE] {DELIMITER:-c,-p} {-details}" << std::endl;
+        std::cout << std::endl << " reaper.exe: Too many arguments. Maximum is " << MAX_ARGS << ".\n Usage -> -f *[FEED_FILE] -h [OUTPUT_FILE] {DELIMITER:-c,-p} {-details} {-supports}" << std::endl;
         return false;
     }
     return true;
@@ -109,7 +109,13 @@ bool CReaperSession::read_args(char* _argv[]) {
                 m_delim = COMMA;
             }
         } else if(current_argument.compare(ARG_FEED_FILE) == MATCH) {   // The next argument in the array should be the path of the feed file
-            m_paths[PATH_FEED_FILE] = _argv[i + 2];
+            std::string fname(_argv[i + 2]);
+            /* NEED TO TEST FOR EMPTY SPACE AFTER -F */
+            /*
+            if(fname == std::string::empty) {
+                return false;
+            } else*/
+                m_paths[PATH_FEED_FILE] = _argv[i + 2];
         } else if(current_argument.compare(ARG_OUTPUT_FILE) == MATCH) { // The next argument in the array should be the path of the feed file
             m_paths[PATH_OUTPUT_FILE] = _argv[i + 2];
         } else if(current_argument.compare(ARG_DUMP) == MATCH) {    // Dump stored entries to file for testing after reading source
