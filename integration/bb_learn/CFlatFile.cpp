@@ -12,7 +12,7 @@
 
 #include "headers/CFlatFile.h"
 
-CFlatFile::CFlatFile(std::vector<std::string> _paths,
+CFlatFile::CFlatFile(const std::vector<std::string> &_paths,
                      const options_t &_options)
     : CFeedFile(_options) {
     m_files = _paths;

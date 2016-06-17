@@ -50,14 +50,14 @@
 	<windows.h>
 	<iostream>
 
-1466098552 source:c:\users\vanallen\desktop\reaper\creapersession.cpp
+1466195955 source:c:\users\vanallen\desktop\reaper\creapersession.cpp
 	"headers/reaper.h"
 	"headers/CReaperSession.h"
 	"version.h"
 
 1465845293 c:\users\vanallen\desktop\reaper\headers\reaper.h
 
-1465908144 c:\users\vanallen\desktop\reaper\headers\creapersession.h
+1466195899 c:\users\vanallen\desktop\reaper\headers\creapersession.h
 	<iostream>
 	<fstream>
 	<string>
@@ -65,11 +65,12 @@
 	<algorithm>
 	"reaper.h"
 	"../integration/bb_learn/headers/CFlatFile.h"
+	"../html/COutputResults.h"
 
-1465845462 c:\users\vanallen\desktop\reaper\integration\bb_learn\headers\cflatfile.h
+1466195686 c:\users\vanallen\desktop\reaper\integration\bb_learn\headers\cflatfile.h
 	"../../CFeedFile.h"
 
-1466103651 c:\users\vanallen\desktop\reaper\integration\cfeedfile.h
+1466189788 c:\users\vanallen\desktop\reaper\integration\cfeedfile.h
 	<iostream>
 	<iomanip>
 	<fstream>
@@ -81,15 +82,15 @@
 	<algorithm>
 	"../headers/reaper.h"
 
-1466011662 c:\users\vanallen\desktop\reaper\version.h
+1466198388 c:\users\vanallen\desktop\reaper\version.h
 
-1465939570 source:c:\users\vanallen\desktop\reaper\integration\bb_learn\cflatfile.cpp
+1466195968 source:c:\users\vanallen\desktop\reaper\integration\bb_learn\cflatfile.cpp
 	"headers/CFlatFile.h"
 
 1465851678 source:c:\users\vanallen\desktop\reaper\integration\cfeedfile.cpp
 	"CFeedFile.h"
 
-1466011467 source:c:\users\vanallen\desktop\reaper\reaper.cpp
+1466195249 source:c:\users\vanallen\desktop\reaper\reaper.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -101,4 +102,13 @@
 1465908144 c:\users\vanallen\desktop\reaper\headers\util.h
 	<windows.h>
 	<iostream>
+
+1466198355 source:c:\users\vanallen\desktop\reaper\html\coutputresults.cpp
+	"COutputResults.h"
+
+1466197657 c:\users\vanallen\desktop\reaper\html\coutputresults.h
+	<iostream>
+	<fstream>
+	<vector>
+	"../headers/reaper.h"
 

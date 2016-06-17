@@ -23,7 +23,7 @@ class CFlatFile : public FeedFile {
 public:
     /* Receives validated file paths when
         reaper determines to build this object. */
-    CFlatFile(std::vector<std::string> _paths,
+    CFlatFile(const std::vector<std::string> &_paths,
               const options_t &_options);
     ~CFlatFile();
 

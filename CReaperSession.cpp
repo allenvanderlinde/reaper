@@ -55,16 +55,17 @@ CReaperSession::CReaperSession(const int &_argc,
 CReaperSession::~CReaperSession() {
     m_args.clear();
     m_paths.clear();
+    delete ff;
 }
 
 bool CReaperSession::ready(const int &_argc,
                            char* _argv[]) {
     m_argc = (_argc - 1); // Minus 1 because the first index of _argv[] will always be the name of the command
     if(m_argc < MIN_ARGS) {
-        std::cout << std::endl << " reaper.exe: Too few arguments. Minimum is " << MIN_ARGS << ".\n Usage -> -f *[FEED_FILE] -h [OUTPUT_FILE] {DELIMITER:-c,-p} {-details} {-supports}" << std::endl;
+        std::cout << std::endl << " reaper: Too few arguments. Minimum is " << MIN_ARGS << ".\n Usage -> -f *[FEED_FILE] -h [OUTPUT_FILE] {DELIMITER:-c,-p} {-details} {-supports}" << std::endl;
         return false;;
     } else if(m_argc > MAX_ARGS) {
-        std::cout << std::endl << " reaper.exe: Too many arguments. Maximum is " << MAX_ARGS << ".\n Usage -> -f *[FEED_FILE] -h [OUTPUT_FILE] {DELIMITER:-c,-p} {-details} {-supports}" << std::endl;
+        std::cout << std::endl << " reaper: Too many arguments. Maximum is " << MAX_ARGS << ".\n Usage -> -f *[FEED_FILE] -h [OUTPUT_FILE] {DELIMITER:-c,-p} {-details} {-supports}" << std::endl;
         return false;
     }
     return true;
@@ -97,7 +98,7 @@ bool CReaperSession::read_args(char* _argv[]) {
         std::use_facet<std::ctype<char>>(std::locale()).toupper(&current_argument[0], &current_argument[0] + current_argument.length());
 
         if(current_argument.compare(DISP_DETAILS) == MATCH) {   /* Do any arguments match reaper's options? */
-            options.use_details = true;
+            m_options.use_details = true;
         } else if(current_argument.compare(ARG_PIPE) == MATCH) {
             if(!delim_found) {
                 delim_found = true;
@@ -109,23 +110,25 @@ bool CReaperSession::read_args(char* _argv[]) {
                 m_delim = COMMA;
             }
         } else if(current_argument.compare(ARG_FEED_FILE) == MATCH) {   // The next argument in the array should be the path of the feed file
-            std::string fname(_argv[i + 2]);
-            /* NEED TO TEST FOR EMPTY SPACE AFTER -F */
-            /*
-            if(fname == std::string::empty) {
+            if(_argv[i + 2] == NULL) {
+                std::cout << " reaper: FATAL: No feed file specified." << std::endl;
+                m_ready = false;
+
                 return false;
-            } else*/
-                m_paths[PATH_FEED_FILE] = _argv[i + 2];
+            } else {
+                std::string f_name(_argv[i + 2]);
+                m_paths[PATH_FEED_FILE] = f_name;
+            }
         } else if(current_argument.compare(ARG_OUTPUT_FILE) == MATCH) { // The next argument in the array should be the path of the feed file
             m_paths[PATH_OUTPUT_FILE] = _argv[i + 2];
         } else if(current_argument.compare(ARG_DUMP) == MATCH) {    // Dump stored entries to file for testing after reading source
-            options.dump_entries = true;
+            m_options.dump_entries = true;
         }
         // NOTE: IF AN OUTPUT FILE IS NOT SPECIFIED THE OUTPUT FILE WILL BY DEFAULT BE {FEED FILE}.html //
     }
 
     std::cout << " Using delimiter: " << m_delim << std::endl << std::endl;   // Default is |
-    if(options.use_details) {
+    if(m_options.use_details) {
         std::cout << " Displaying details" << std::endl;
     }
     std::cout << std::endl << " Starting..." << std::endl;
@@ -133,22 +136,25 @@ bool CReaperSession::read_args(char* _argv[]) {
     /* Check if reaper can even process the arguments passed to it.
         This in case someone's trying to be funny. */
     if(!store_args(_argv)) {
-        std::cout << std::endl << " reaper.exe: Reaper was unable to process your arguments." << std::endl;
+        std::cout << std::endl << " reaper: Reaper was unable to process your arguments." << std::endl;
+        m_ready = false;
+
         return false;
     }
-    if(options.use_details) std::cout << std::endl << " SUCCESS: " << m_argc << " arguments stored" << std::endl << std::endl;
+    if(m_options.use_details) std::cout << std::endl << " SUCCESS: " << m_argc << " arguments stored" << std::endl << std::endl;
     else std::cout << " SUCCESS: " << m_argc << " arguments stored" << std::endl;
 
+    m_ready = true; // Reset ready to true if read_args() runs without error
     return true;
 }
 
 bool CReaperSession::store_args(char* _argv[]) {
-    if(options.use_details) {
+    if(m_options.use_details) {
         std::cout << std::endl << "\tARGUMENT DETAILS:" << std::endl << std::endl;
     }
     for(int i = 0; i < m_argc; i++) {
         m_args.push_back(_argv[i + 1]);
-        if(options.use_details) std::cout << "\t\targ[" << i << "]: \"" << m_args[i] << "\"" << std::endl;
+        if(m_options.use_details) std::cout << "\t\targ[" << i << "]: \"" << m_args[i] << "\"" << std::endl;
     }
     return true;
 }
@@ -158,15 +164,25 @@ void CReaperSession::reap(const int &feed_type) {
 
     switch(feed_type) {
     case BB_FLAT_FILE:
-        ff = new FlatFile(m_paths, options);
+        ff = new FlatFile(m_paths, m_options);
         if(!ff->build()) {
-            std::cout << " reaper.exe: FATAL: Unable to build integration feed file object." << std::endl;
+            std::cout << " reaper: FATAL: Unable to build integration feed file object." << std::endl;
+            m_feed_ready = false;
             return;
-        }
+        } else m_feed_ready = true;
 
         break;
     default:
 
         break;
     };
+}
+
+void CReaperSession::build_html() {
+    /* If the feed is read successfully, build HTML
+        results page from stored information in
+        respective object. */
+    if(m_feed_ready) {
+            results = new HTML(m_paths, m_options);
+    }
 }

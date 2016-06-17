@@ -44,12 +44,17 @@ int main(int argc, char* argv[]) {
     /* Attempt to parse and extract
         information from feed. */
     if(reaper->is_ready()) {
-        reaper->read_args(argv);
-    } else return 0;
-    std::cout << std::endl << " Reaper is RUNNING..." << std::endl << std::endl;
+        if(!reaper->read_args(argv)) {
+            std::cout << std::endl << " EXITING Reaper..." << std::endl;
 
-    reaper->reap(BB_FLAT_FILE);   // Final version should only need feed type specified
+            return 0;
+        } else {
+            std::cout << std::endl << " Reaper is RUNNING..." << std::endl << std::endl;
+            reaper->reap(BB_FLAT_FILE);   // Final version should only need feed type specified
+        }
 
+        reaper->build_html();   // Write details and metadata of feed to HTML page
+    }
     std::cout << std::endl << " EXITING Reaper..." << std::endl;
 
     return 0;

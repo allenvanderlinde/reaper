@@ -32,7 +32,7 @@ public:
         should be displayed from primary
         thread (e.g., main()). */
     CFeedFile(const options_t &_options);
-    ~CFeedFile();
+    virtual ~CFeedFile();
 
     /**
      * @brief Dump contents of entries vector to a plain text file

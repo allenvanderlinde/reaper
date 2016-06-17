@@ -22,6 +22,7 @@
 
 #include "reaper.h"
 #include "../integration/bb_learn/headers/CFlatFile.h"
+#include "../html/COutputResults.h"
 
 class CReaperSession {
 public:
@@ -50,6 +51,11 @@ public:
      * @retval bool True if command line arguments successfully stored.
      */
     bool store_args(char* _argv[]);
+    /**
+     * @brief Tells whether the feed was read successfully.
+     * @retval m_feed_ready True if feed read successfully.
+     */
+    bool feed_ready() { return m_feed_ready; }
 
     /**
      * @brief The beginning of primary processing. Open a file
@@ -58,12 +64,17 @@ public:
      * file being used based on the integration.
      */
     void reap(const int &feed_type);
+    /**
+     * @brief Parses feed information and builds a results
+     * page in HTML which contains entry details and metadata
+     */
+    void build_html();
 
     /**
      * @brief Are details being displayed?
      * @retval bool Yes or no.
      */
-    bool using_details() { return options.use_details; }
+    bool using_details() { return m_options.use_details; }
     /**
      * @brief Is reaper ready to run?
      * @retval bool Yes or no.
@@ -74,7 +85,9 @@ private:
     /** @brief Tells main thread if this object was instantiated successfully. */
     bool m_ready = false;
     /** @brief Structure of reaper options to use during runtime. */
-    options_t options;
+    options_t m_options;
+    /** @brief Tells if the feed file was loaded and read successfully. */
+    bool m_feed_ready = false;
 
     /** @brief Number of arguments passed into the command line. */
     int m_argc;
@@ -94,9 +107,14 @@ private:
     std::vector<std::string> m_paths{"", ""};
 
     /** @brief Object which represents a Snapshot Flat File and
-     *  contains useful information and functions.
+     *  contains unique, useful information and functions.
      */
-    FlatFile *ff;
+    FlatFile* ff;
+
+    /** @brief Object which represents the HTML results page
+     *  built from feed information.
+     */
+    HTML* results;
 
     /**
      * @brief Displays which SIS integration feeds are supported.
