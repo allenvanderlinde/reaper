@@ -52,7 +52,7 @@
 	<windows.h>
 	<iostream>
 
-1466195955 source:c:\users\vanallen\desktop\reaper\creapersession.cpp
+1466428978 source:c:\users\vanallen\desktop\reaper\creapersession.cpp
 	"headers/reaper.h"
 	"headers/CReaperSession.h"
 	"version.h"
@@ -84,7 +84,7 @@
 	<algorithm>
 	"../headers/reaper.h"
 
-1466198388 c:\users\vanallen\desktop\reaper\version.h
+1466453259 c:\users\vanallen\desktop\reaper\version.h
 
 1466195968 source:c:\users\vanallen\desktop\reaper\integration\bb_learn\cflatfile.cpp
 	"headers/CFlatFile.h"

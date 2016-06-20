@@ -117,88 +117,90 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">        should be displayed from primary</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">        thread (e.g., main()). */</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    CFeedFile(<span class="keyword">const</span> <a class="code" href="structoptions__t.html">options_t</a> &amp;_options);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ~CFeedFile();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> ~CFeedFile();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_feed_file.html#a69feee332115b0f33a89c0214d47d564">   42</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feed_file.html#a69feee332115b0f33a89c0214d47d564">dump_entries</a>() {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::string dump_file_path;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        dump_file_path = m_files[PATH_FEED_FILE].substr(0, m_files[PATH_FEED_FILE].find_first_of(<span class="charliteral">&#39;.&#39;</span>, 0));</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        dump_file_path += <span class="stringliteral">&quot;_dumped.txt&quot;</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::wofstream out(dump_file_path, std::ios::out);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span>(out) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span>(out.is_open()) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                for_each(m_entries.begin(), m_entries.end(), [&amp;out](std::wstring ws){ out &lt;&lt; ws &lt;&lt; std::endl; });</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            out.close();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot; reaper.exe: Successfully dumped entries into \&quot;&quot;</span> &lt;&lt; dump_file_path &lt;&lt; <span class="stringliteral">&quot;\&quot;.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot; reaper.exe: Unable to dump entries into \&quot;&quot;</span> &lt;&lt; dump_file_path &lt;&lt; <span class="stringliteral">&quot;\&quot;.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_feed_file.html#aa19aa94cd2354315321b7d7bf215af44">   66</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feed_file.html#aa19aa94cd2354315321b7d7bf215af44">show_progress</a>(<span class="keyword">const</span> std::size_t &amp;line_len) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">double</span> chars = 0;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> meter_width = 70;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> digits = (int)log10(feed_bytes);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        chars += (double)line_len;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span>((<span class="keywordtype">int</span>)chars % (int)(digits * 1000) == 0) { <span class="comment">/* Modulus by the # of digits in size</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">                                                    of feed (divide by 2 for more percents). */</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot; [&quot;</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordtype">double</span> r = chars / feed_bytes;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordtype">int</span> n = (int)(r * meter_width);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; meter_width; j++) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">if</span>(j &lt; n) std::cout &lt;&lt; static_cast&lt;char&gt;(219);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(j == n) std::cout &lt;&lt; static_cast&lt;char&gt;(219);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">else</span> std::cout &lt;&lt; static_cast&lt;char&gt;(205);<span class="comment">//&quot; &quot;;</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;] &quot;</span> &lt;&lt; std::fixed &lt;&lt; std::setprecision(0) &lt;&lt; (r * 100.0) &lt;&lt; <span class="stringliteral">&quot;%\r&quot;</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            std::cout.flush();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">   91</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">print_meter_done</a>() {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot; [&quot;</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 69; i++) {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            std::cout &lt;&lt; static_cast&lt;char&gt;(219);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;] 100%&quot;</span>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        std::cout &lt;&lt; std::endl &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> build() = 0;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">  108</a></span>&#160;    <a class="code" href="structoptions__t.html">options_t</a> <a class="code" href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">m_options</a>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="class_feed_file.html#ab4076a63e6005405d591d583716b114d">  111</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_feed_file.html#ab4076a63e6005405d591d583716b114d">feed_bytes</a>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="class_feed_file.html#a0ec5a6608c3952343d668093f3784489">  113</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_num_lines = 0;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="class_feed_file.html#aed3f137f4c33c617b32f6d5ba44c9765">  116</a></span>&#160;    std::clock_t <a class="code" href="class_feed_file.html#aed3f137f4c33c617b32f6d5ba44c9765">start</a>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="class_feed_file.html#ac4705e0c87dea300f32000884ddfbf51">  118</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_feed_file.html#ac4705e0c87dea300f32000884ddfbf51">dur</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">  121</a></span>&#160;    std::vector&lt;std::string&gt; <a class="code" href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">m_files</a>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">  124</a></span>&#160;    std::vector&lt;std::wstring&gt; <a class="code" href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">m_entries</a>;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;} <span class="keyword">typedef</span> <a class="code" href="class_feed_file.html">FeedFile</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot; Dumping feed...&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        std::wofstream out(dump_file_path, std::ios::out);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span>(out) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">if</span>(out.is_open()) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                std::for_each(m_entries.begin(), m_entries.end(), [&amp;out](std::wstring ws){ out &lt;&lt; ws &lt;&lt; std::endl; });</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            out.close();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot; reaper.exe: Successfully dumped entries into \&quot;&quot;</span> &lt;&lt; dump_file_path &lt;&lt; <span class="stringliteral">&quot;\&quot;.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot; reaper.exe: Unable to dump entries into \&quot;&quot;</span> &lt;&lt; dump_file_path &lt;&lt; <span class="stringliteral">&quot;\&quot;.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_feed_file.html#aa19aa94cd2354315321b7d7bf215af44">   68</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feed_file.html#aa19aa94cd2354315321b7d7bf215af44">show_progress</a>(<span class="keyword">const</span> std::size_t &amp;line_len) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">double</span> chars = 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> meter_width = 70;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> digits = (int)log10(feed_bytes);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        chars += (double)line_len;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">if</span>((<span class="keywordtype">int</span>)chars % (int)(digits * 1000) == 0) { <span class="comment">/* Modulus by the # of digits in size</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">                                                    of feed (divide by 2 for more percents). */</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot; [&quot;</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordtype">double</span> r = chars / feed_bytes;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordtype">int</span> n = (int)(r * meter_width);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; meter_width; j++) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">if</span>(j &lt; n) std::cout &lt;&lt; static_cast&lt;char&gt;(219);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(j == n) std::cout &lt;&lt; static_cast&lt;char&gt;(219);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">else</span> std::cout &lt;&lt; static_cast&lt;char&gt;(205);<span class="comment">//&quot; &quot;;</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;] &quot;</span> &lt;&lt; std::fixed &lt;&lt; std::setprecision(0) &lt;&lt; (r * 100.0) &lt;&lt; <span class="stringliteral">&quot;%\r&quot;</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            std::cout.flush();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">   93</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">print_meter_done</a>() {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot; [&quot;</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 69; i++) {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            std::cout &lt;&lt; static_cast&lt;char&gt;(219);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;] 100%&quot;</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        std::cout &lt;&lt; std::endl &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> build() = 0;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">  110</a></span>&#160;    <a class="code" href="structoptions__t.html">options_t</a> <a class="code" href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">m_options</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="class_feed_file.html#ab4076a63e6005405d591d583716b114d">  113</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_feed_file.html#ab4076a63e6005405d591d583716b114d">feed_bytes</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="class_feed_file.html#a0ec5a6608c3952343d668093f3784489">  115</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_num_lines = 0;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="class_feed_file.html#aed3f137f4c33c617b32f6d5ba44c9765">  118</a></span>&#160;    std::clock_t <a class="code" href="class_feed_file.html#aed3f137f4c33c617b32f6d5ba44c9765">start</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="class_feed_file.html#ac4705e0c87dea300f32000884ddfbf51">  120</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_feed_file.html#ac4705e0c87dea300f32000884ddfbf51">dur</a>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">  123</a></span>&#160;    std::vector&lt;std::string&gt; <a class="code" href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">m_files</a>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">  126</a></span>&#160;    std::vector&lt;std::wstring&gt; <a class="code" href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">m_entries</a>;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif // _CFEEDFILE_H_</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;} <span class="keyword">typedef</span> <a class="code" href="class_feed_file.html">FeedFile</a>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif // _CFEEDFILE_H_</span></div>
 <div class="ttc" id="structoptions__t_html"><div class="ttname"><a href="structoptions__t.html">options_t</a></div><div class="ttdoc">Structure of options passed between objects. </div><div class="ttdef"><b>Definition:</b> reaper.h:47</div></div>
-<div class="ttc" id="class_feed_file_html_a60e590fb0c14b57417ddb98847df1626"><div class="ttname"><a href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">FeedFile::m_entries</a></div><div class="ttdeci">std::vector&lt; std::wstring &gt; m_entries</div><div class="ttdoc">Vector of entries read from file line-by-line. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:124</div></div>
-<div class="ttc" id="class_feed_file_html_ac4705e0c87dea300f32000884ddfbf51"><div class="ttname"><a href="class_feed_file.html#ac4705e0c87dea300f32000884ddfbf51">FeedFile::dur</a></div><div class="ttdeci">double dur</div><div class="ttdoc">Duration of a feed file read based on a std::clock_t timer. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:118</div></div>
-<div class="ttc" id="class_feed_file_html_aa19aa94cd2354315321b7d7bf215af44"><div class="ttname"><a href="class_feed_file.html#aa19aa94cd2354315321b7d7bf215af44">FeedFile::show_progress</a></div><div class="ttdeci">void show_progress(const std::size_t &amp;line_len)</div><div class="ttdoc">Display a progress indicator (e.g., percentage) when building the feed file object. ASCII characters are used here to represent the "bar". Meter width is hard-coded. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:66</div></div>
+<div class="ttc" id="class_feed_file_html_a60e590fb0c14b57417ddb98847df1626"><div class="ttname"><a href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">FeedFile::m_entries</a></div><div class="ttdeci">std::vector&lt; std::wstring &gt; m_entries</div><div class="ttdoc">Vector of entries read from file line-by-line. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:126</div></div>
+<div class="ttc" id="class_feed_file_html_ac4705e0c87dea300f32000884ddfbf51"><div class="ttname"><a href="class_feed_file.html#ac4705e0c87dea300f32000884ddfbf51">FeedFile::dur</a></div><div class="ttdeci">double dur</div><div class="ttdoc">Duration of a feed file read based on a std::clock_t timer. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:120</div></div>
+<div class="ttc" id="class_feed_file_html_aa19aa94cd2354315321b7d7bf215af44"><div class="ttname"><a href="class_feed_file.html#aa19aa94cd2354315321b7d7bf215af44">FeedFile::show_progress</a></div><div class="ttdeci">void show_progress(const std::size_t &amp;line_len)</div><div class="ttdoc">Display a progress indicator (e.g., percentage) when building the feed file object. ASCII characters are used here to represent the "bar". Meter width is hard-coded. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:68</div></div>
 <div class="ttc" id="class_feed_file_html_a69feee332115b0f33a89c0214d47d564"><div class="ttname"><a href="class_feed_file.html#a69feee332115b0f33a89c0214d47d564">FeedFile::dump_entries</a></div><div class="ttdeci">void dump_entries()</div><div class="ttdoc">Dump contents of entries vector to a plain text file essentially as a copy to test if UTF-8 character...</div><div class="ttdef"><b>Definition:</b> CFeedFile.h:42</div></div>
-<div class="ttc" id="class_feed_file_html_afd1e278ce06a454d30444ccdef83f465"><div class="ttname"><a href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">FeedFile::m_files</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_files</div><div class="ttdoc">Vector of remaining arguments after delimiter and details option chosen. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:121</div></div>
-<div class="ttc" id="class_feed_file_html_a77a5e73d2b2d12543c67b12b05af76b3"><div class="ttname"><a href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">FeedFile::m_options</a></div><div class="ttdeci">options_t m_options</div><div class="ttdoc">Structure of options passed from CReaperSession to specify special actions. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:108</div></div>
-<div class="ttc" id="class_feed_file_html_aed3f137f4c33c617b32f6d5ba44c9765"><div class="ttname"><a href="class_feed_file.html#aed3f137f4c33c617b32f6d5ba44c9765">FeedFile::start</a></div><div class="ttdeci">std::clock_t start</div><div class="ttdoc">Timer/clock to measure duration of feed file read. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:116</div></div>
-<div class="ttc" id="class_feed_file_html_a1f880713d1da6526ff3ad3d20cf1fe5e"><div class="ttname"><a href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">FeedFile::print_meter_done</a></div><div class="ttdeci">void print_meter_done()</div><div class="ttdoc">This just prints a finished 100% meter for the user after reading. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:91</div></div>
+<div class="ttc" id="class_feed_file_html_afd1e278ce06a454d30444ccdef83f465"><div class="ttname"><a href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">FeedFile::m_files</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_files</div><div class="ttdoc">Vector of remaining arguments after delimiter and details option chosen. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:123</div></div>
+<div class="ttc" id="class_feed_file_html_a77a5e73d2b2d12543c67b12b05af76b3"><div class="ttname"><a href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">FeedFile::m_options</a></div><div class="ttdeci">options_t m_options</div><div class="ttdoc">Structure of options passed from CReaperSession to specify special actions. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:110</div></div>
+<div class="ttc" id="class_feed_file_html_aed3f137f4c33c617b32f6d5ba44c9765"><div class="ttname"><a href="class_feed_file.html#aed3f137f4c33c617b32f6d5ba44c9765">FeedFile::start</a></div><div class="ttdeci">std::clock_t start</div><div class="ttdoc">Timer/clock to measure duration of feed file read. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:118</div></div>
+<div class="ttc" id="class_feed_file_html_a1f880713d1da6526ff3ad3d20cf1fe5e"><div class="ttname"><a href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">FeedFile::print_meter_done</a></div><div class="ttdeci">void print_meter_done()</div><div class="ttdoc">This just prints a finished 100% meter for the user after reading. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:93</div></div>
 <div class="ttc" id="class_feed_file_html"><div class="ttname"><a href="class_feed_file.html">FeedFile</a></div><div class="ttdef"><b>Definition:</b> CFeedFile.h:29</div></div>
-<div class="ttc" id="class_feed_file_html_ab4076a63e6005405d591d583716b114d"><div class="ttname"><a href="class_feed_file.html#ab4076a63e6005405d591d583716b114d">FeedFile::feed_bytes</a></div><div class="ttdeci">unsigned int feed_bytes</div><div class="ttdoc">Size in bytes of feed file. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:111</div></div>
+<div class="ttc" id="class_feed_file_html_ab4076a63e6005405d591d583716b114d"><div class="ttname"><a href="class_feed_file.html#ab4076a63e6005405d591d583716b114d">FeedFile::feed_bytes</a></div><div class="ttdeci">unsigned int feed_bytes</div><div class="ttdoc">Size in bytes of feed file. </div><div class="ttdef"><b>Definition:</b> CFeedFile.h:113</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 14 2016 17:27:27 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 20 2016 16:13:04 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -105,9 +105,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af9e9f26953e4bead3e139f470ac515a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgrim.html#af9e9f26953e4bead3e139f470ac515a5">store_args</a> (char *_argv[])</td></tr>
 <tr class="memdesc:af9e9f26953e4bead3e139f470ac515a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store arguments passed into the command line.  <a href="#af9e9f26953e4bead3e139f470ac515a5">More...</a><br /></td></tr>
 <tr class="separator:af9e9f26953e4bead3e139f470ac515a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbeeee98e6d789fda6ba90c4883be697"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgrim.html#abbeeee98e6d789fda6ba90c4883be697">feed_ready</a> ()</td></tr>
+<tr class="memdesc:abbeeee98e6d789fda6ba90c4883be697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the feed was read successfully.  <a href="#abbeeee98e6d789fda6ba90c4883be697">More...</a><br /></td></tr>
+<tr class="separator:abbeeee98e6d789fda6ba90c4883be697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64a348521ccff4c035f693a0027cfa33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgrim.html#a64a348521ccff4c035f693a0027cfa33">reap</a> (const int &amp;feed_type)</td></tr>
 <tr class="memdesc:a64a348521ccff4c035f693a0027cfa33"><td class="mdescLeft">&#160;</td><td class="mdescRight">The beginning of primary processing. Open a file and parse each line into the object's vector.  <a href="#a64a348521ccff4c035f693a0027cfa33">More...</a><br /></td></tr>
 <tr class="separator:a64a348521ccff4c035f693a0027cfa33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53cfe2fde316b3461d7e4ef0f4413f36"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53cfe2fde316b3461d7e4ef0f4413f36"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgrim.html#a53cfe2fde316b3461d7e4ef0f4413f36">build_html</a> ()</td></tr>
+<tr class="memdesc:a53cfe2fde316b3461d7e4ef0f4413f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses feed information and builds a results page in <a class="el" href="class_h_t_m_l.html">HTML</a> which contains entry details and metadata. <br /></td></tr>
+<tr class="separator:a53cfe2fde316b3461d7e4ef0f4413f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ee4556520039ebd60b872ae1a5606cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgrim.html#a9ee4556520039ebd60b872ae1a5606cd">using_details</a> ()</td></tr>
 <tr class="memdesc:a9ee4556520039ebd60b872ae1a5606cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Are details being displayed?  <a href="#a9ee4556520039ebd60b872ae1a5606cd">More...</a><br /></td></tr>
 <tr class="separator:a9ee4556520039ebd60b872ae1a5606cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,6 +123,37 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6c174bdfce481eb97bc7f69af55b24d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="abbeeee98e6d789fda6ba90c4883be697"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool grim::feed_ready </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tells whether the feed was read successfully. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">m_feed_ready</td><td>True if feed read successfully. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a6c174bdfce481eb97bc7f69af55b24d0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -303,7 +341,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 14 2016 17:27:27 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 20 2016 16:13:04 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

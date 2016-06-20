@@ -28,14 +28,6 @@
     can be concatenated to other strings for writing to file.
 */
 
-void test_output(std::string file) {
-    std::ofstream output(file);
-    if(output.is_open()) {
-        output << "<!DOCTYPE html>" << std::endl << "<html>\n<body>\n</body>\n</html>" << std::endl;
-    }
-    output.close();
-}
-
 int main(int argc, char* argv[]) {
     //util_ClearConsole();
     /* Build new reaper
