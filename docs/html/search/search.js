@@ -12,7 +12,7 @@ var indexSectionsWithContent =
   2: "cru",
   3: "bdfiprsu",
   4: "dfmsu",
-  5: "abcdmpt"
+  5: "abcdhmpt"
 };
 
 var indexSectionNames =

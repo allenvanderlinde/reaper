@@ -16,7 +16,7 @@ COutputResults::COutputResults(const std::vector<std::string> &_paths,
                                const options_t &_options) {
     m_files = _paths;
     m_options = _options;
-    if(m_files[PATH_OUTPUT_FILE] == "") {
+    if(m_files[PATH_OUTPUT_FILE] == "") {   // Give results page default name if none given
         m_files[PATH_OUTPUT_FILE] = "results_" + m_files[PATH_FEED_FILE] + ".html";
     }
     std::cout << " Building HTML results: \"" << m_files[PATH_OUTPUT_FILE] << "\"..." << std::endl;
@@ -28,9 +28,34 @@ COutputResults::~COutputResults() {
 }
 
 void COutputResults::write_file() {
-    std::wofstream u16_ofs(m_files[PATH_OUTPUT_FILE], std::ios::out);
+    //std::wifstream u16_ifs(m_files[PATH_OUTPUT_FILE], std::ios::in);
+    std::wifstream u16_ifs(HTML_TEMPLATE, std::ios::in);
+    std::wstring line;
+    std::wstring keyword;
 
-    if(u16_ofs.is_open()) {
-        u16_ofs.close();
+    keyword = L"Hello, world!";
+
+    unsigned line_num = 0;
+    std::size_t col = 0;
+
+    if((u16_ifs.rdstate() & std::fstream::failbit) != 0) {
+        //std::cout << " reaper: Unable to open file at: \"" << m_files[PATH_OUTPUT_FILE] << "\"" << std::endl;
+        return;
     }
+    /* Search through output template and find
+        keywords to modify for results. */
+    while(std::getline(u16_ifs, line)) {
+        line_num++;
+
+        col = line.find(keyword);
+
+        /* This prints each record in feed line-for-line.
+            (Used for programmer testing only). */
+        //std::wcout << " " << line_num << " | \t" << line << std::endl;
+
+        if(col != std::string::npos) {
+            std::wcout << " Found keyword \"" <<  keyword << "\" at line " << line_num << " and column " << (unsigned)(col + 1) << std::endl;
+        }
+    }
+    u16_ifs.close();
 }

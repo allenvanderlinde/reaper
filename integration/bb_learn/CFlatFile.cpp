@@ -24,7 +24,6 @@ CFlatFile::~CFlatFile() {
 bool CFlatFile::build() {
     /* These are the input stream objects for reading
         the specified feed file (UTF-8). */
-    std::wstringstream u16_sstream;
     std::wstring line;  /* Temporary string for each line which is
                             placed in the entries vector. */
     std::wifstream u16_ifs(m_files[PATH_FEED_FILE], std::ios::in);    // Open the stream to the file immediately
@@ -46,7 +45,7 @@ bool CFlatFile::build() {
             std::cout << std::endl << " \ttype:\t\t" << THIS_FEED_TYPE << std::endl;
             std::cout << "\tfile size: \t" << feed_bytes << " bytes: " << ((double)feed_bytes / 1024) << "k: " << std::fixed << std::setprecision(5) << ((double)((double)feed_bytes / 1024) / 1024) << "mb" << std::endl;
         }
-        if(u16_ifs.is_open()) {
+        if(u16_ifs.is_open()) { // Ensure file is still open
             /* Build the entries vector from each line
                 in the feed file via a loop. */
             std::cout << std::endl;

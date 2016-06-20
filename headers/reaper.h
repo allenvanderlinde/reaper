@@ -43,6 +43,9 @@
 /** @brief Human readable replacement for 0 when comparing strings. */
 #define MATCH 0
 
+/** @brief Path to HTML template file for results. */
+#define HTML_TEMPLATE "template.html"
+
 /** @brief Structure of options passed between objects. */
 struct reaper_options {
     /** @brief Display details during execution. */
