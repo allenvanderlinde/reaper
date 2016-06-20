@@ -183,6 +183,6 @@ void CReaperSession::build_html() {
         results page from stored information in
         respective object. */
     if(m_feed_ready) {
-            results = new HTML(m_paths, m_options);
+        results = new HTML(m_paths, m_options);
     }
 }
