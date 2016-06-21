@@ -32,7 +32,10 @@ void COutputResults::write_file() {
     std::wstring line;
     std::wstring keyword;
 
-    keyword = L"Hello, world!";
+    std::wofstream u16_ofs;
+    unsigned int byte = 0;
+
+    keyword = L"<title>";
 
     unsigned line_num = 0;
     std::size_t col = 0;
@@ -53,7 +56,8 @@ void COutputResults::write_file() {
         //std::wcout << " " << line_num << " | \t" << line << std::endl;
 
         if(col != std::string::npos) {
-            std::wcout << " Found keyword \"" <<  keyword << "\" at line " << line_num << " and column " << (unsigned)(col + 1) << std::endl;
+            std::wcout << std::endl << " tellg(): " << u16_ifs.tellg() << " |Found keyword \"" <<  keyword << "\" at line " << line_num << " and column " << (unsigned)(col + 1) << std::endl;
+            byte = u16_ifs.tellg();
         }
     }
     u16_ifs.close();
