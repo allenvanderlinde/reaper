@@ -28,7 +28,6 @@ COutputResults::~COutputResults() {
 }
 
 void COutputResults::write_file() {
-    //std::wifstream u16_ifs(m_files[PATH_OUTPUT_FILE], std::ios::in);
     std::wifstream u16_ifs(HTML_TEMPLATE, std::ios::in);
     std::wstring line;
     std::wstring keyword;

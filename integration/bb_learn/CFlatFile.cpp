@@ -16,6 +16,10 @@ CFlatFile::CFlatFile(const std::vector<std::string> &_paths,
                      const options_t &_options)
     : CFeedFile(_options) {
     m_files = _paths;
+    /* Note: Need to call calc_size() in derived class
+        as that's where file paths will be defined. This
+        should follow for all derived feed file classes. */
+    calc_size();
 }
 
 CFlatFile::~CFlatFile() {
@@ -27,7 +31,6 @@ bool CFlatFile::build() {
     std::wstring line;  /* Temporary string for each line which is
                             placed in the entries vector. */
     std::wifstream u16_ifs(m_files[PATH_FEED_FILE], std::ios::in);    // Open the stream to the file immediately
-
     /* Read the specified feed file and push each
         line into the entries vector. */
     if((u16_ifs.rdstate() & std::fstream::failbit) != 0) {  // != 0 is failure meaning the failbit is present
@@ -35,15 +38,11 @@ bool CFlatFile::build() {
         return false;
     } else {
         std::cout << " SUCCESS: Opened \"" << m_files[PATH_FEED_FILE] << "\"" << std::endl;
-        /* Calculate physical size
-            of file. */
-        u16_ifs.seekg(0, u16_ifs.end);
-        feed_bytes = u16_ifs.tellg();
-        u16_ifs.seekg(0, u16_ifs.beg);
+
         std::cout << std::endl << " Reading..." << std::endl;
         if(m_options.use_details) {
             std::cout << std::endl << " \ttype:\t\t" << THIS_FEED_TYPE << std::endl;
-            std::cout << "\tfile size: \t" << feed_bytes << " bytes: " << ((double)feed_bytes / 1024) << "k: " << std::fixed << std::setprecision(5) << ((double)((double)feed_bytes / 1024) / 1024) << "mb" << std::endl;
+            std::cout << "\tfile size: \t" << feed_bytes << " bytes: " << std::fixed << std::setprecision(5) << (double)(feed_bytes / 1024) << "k: " << std::fixed << std::setprecision(5) << (double)((double)(feed_bytes / 1024) / 1024) << "mb" << std::endl;
         }
         if(u16_ifs.is_open()) { // Ensure file is still open
             /* Build the entries vector from each line

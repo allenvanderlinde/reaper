@@ -99,6 +99,28 @@ public:
         std::cout << std::endl << std::endl;
     }
 
+    /**
+     * @brief Calculate size of feed file which this object
+     * is built from.
+     * @retval unsigned int The number of bytes in the feed file.
+     */
+    inline void calc_size() {
+        std::wifstream u16_ifs(m_files[PATH_FEED_FILE], std::ios::in);    // Open the stream to the file immediately
+        /* Calculate physical size
+            of file. */
+        u16_ifs.seekg(0, u16_ifs.end);
+        feed_bytes = (unsigned int)u16_ifs.tellg();
+        u16_ifs.seekg(0, u16_ifs.beg);
+
+        u16_ifs.close();
+    }
+
+    /**
+     * @brief Return the size of the feed file in bytes.
+     * @retval unsigned int The size of the feed in bytes.
+     */
+    inline unsigned int file_size() { return feed_bytes; }
+
 protected:
     /**
      * @brief Virtual function for derived classes' build operation.
@@ -110,7 +132,7 @@ protected:
     options_t m_options;
 
     /** @brief Size in bytes of feed file. */
-    unsigned int feed_bytes;
+    unsigned int feed_bytes = 0;
     /** @brief Integer that keeps track of how many lines are processed. */
     unsigned int m_num_lines = 0;
 
