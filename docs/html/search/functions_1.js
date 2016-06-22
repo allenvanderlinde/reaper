@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dump_5fentries',['dump_entries',['../class_feed_file.html#a69feee332115b0f33a89c0214d47d564',1,'FeedFile']]]
+  ['calc_5fsize',['calc_size',['../class_feed_file.html#a6fa6599058cdd36917762252c764d762',1,'FeedFile']]]
 ];

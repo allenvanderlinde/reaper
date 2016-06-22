@@ -25,7 +25,7 @@ CFlatFile::CFlatFile(const std::vector<std::string> &_paths,
 CFlatFile::~CFlatFile() {
 };
 
-bool CFlatFile::build() {
+bool CFlatFile::read() {
     /* These are the input stream objects for reading
         the specified feed file (UTF-8). */
     std::wstring line;  /* Temporary string for each line which is
@@ -42,7 +42,7 @@ bool CFlatFile::build() {
         std::cout << std::endl << " Reading..." << std::endl;
         if(m_options.use_details) {
             std::cout << std::endl << " \ttype:\t\t" << THIS_FEED_TYPE << std::endl;
-            std::cout << "\tfile size: \t" << feed_bytes << " bytes: " << std::fixed << std::setprecision(5) << (double)(feed_bytes / 1024) << "k: " << std::fixed << std::setprecision(5) << (double)((double)(feed_bytes / 1024) / 1024) << "mb" << std::endl;
+            std::cout << "\tfile size: \t" << m_feed_bytes << " bytes: " << std::fixed << std::setprecision(5) << (double)(m_feed_bytes / 1024) << "k: " << std::fixed << std::setprecision(5) << (double)((double)(m_feed_bytes / 1024) / 1024) << "mb" << std::endl;
         }
         if(u16_ifs.is_open()) { // Ensure file is still open
             /* Build the entries vector from each line
@@ -51,7 +51,7 @@ bool CFlatFile::build() {
             u16_ifs.clear();
             u16_ifs.seekg(0, u16_ifs.beg);
 
-            start = std::clock();   // Start timer
+            m_start = std::clock();   // Start timer
 
             while(std::getline(u16_ifs, line)) {
                 m_entries.push_back(line);
@@ -61,10 +61,10 @@ bool CFlatFile::build() {
             }
             print_meter_done();
 
-            dur = (std::clock() - start) / (double)CLOCKS_PER_SEC;  // Calculate duration of read
+            m_dur = (std::clock() - m_start) / (double)CLOCKS_PER_SEC;  // Calculate duration of read
 
             if(m_options.use_details) std::cout << "\tlength:\t\t" << m_num_lines << " entries" << std::endl << std::endl;
-            std::cout << " Read time: " << std::fixed << std::setprecision(4) << dur << " seconds" << std::endl;
+            std::cout << " Read time: " << std::fixed << std::setprecision(4) << m_dur << " seconds" << std::endl;
 
             /* This ensures if the process is successful
                 the user will know with a 100% regardless

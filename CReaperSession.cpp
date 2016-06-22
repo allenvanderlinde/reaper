@@ -53,9 +53,12 @@ CReaperSession::CReaperSession(const int &_argc,
 }
 
 CReaperSession::~CReaperSession() {
+    /* Clean up the
+        session. */
     m_args.clear();
     m_paths.clear();
     delete ff;
+    delete results;
 }
 
 bool CReaperSession::ready(const int &_argc,
@@ -124,7 +127,6 @@ bool CReaperSession::read_args(char* _argv[]) {
         } else if(current_argument.compare(ARG_DUMP) == MATCH) {    // Dump stored entries to file for testing after reading source
             m_options.dump_entries = true;
         }
-        // NOTE: IF AN OUTPUT FILE IS NOT SPECIFIED THE OUTPUT FILE WILL BY DEFAULT BE {FEED FILE}.html //
     }
 
     std::cout << " Using delimiter: " << m_delim << std::endl << std::endl;   // Default is |
@@ -165,7 +167,7 @@ void CReaperSession::reap(const int &feed_type) {
     switch(feed_type) {
     case BB_FLAT_FILE:
         ff = new FlatFile(m_paths, m_options);
-        if(!ff->build()) {
+        if(!ff->read()) {
             std::cout << " reaper: FATAL: Unable to build integration feed file object." << std::endl;
             m_feed_ready = false;
             return;
@@ -183,6 +185,6 @@ void CReaperSession::build_html() {
         results page from stored information in
         respective object. */
     if(m_feed_ready) {
-        results = new HTML(m_paths, m_options);
+        results = new HTML(m_paths, m_options, ff->entries());
     }
 }

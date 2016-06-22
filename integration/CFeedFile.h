@@ -26,6 +26,9 @@
 
 #include "../headers/reaper.h"
 
+/**
+ * @brief Feed file base class.
+ */
 class CFeedFile {
 public:
     /* Base class expects whether details
@@ -68,13 +71,13 @@ public:
     inline void show_progress(const std::size_t &line_len) {
         static double chars = 0;
         static int meter_width = 70;
-        static int digits = (int)log10(feed_bytes);
+        static int digits = (int)log10(m_feed_bytes);
 
         chars += (double)line_len;
         if((int)chars % (int)(digits * 1000) == 0) { /* Modulus by the # of digits in size
                                                     of feed (divide by 2 for more percents). */
             std::cout << " [";
-            double r = chars / feed_bytes;
+            double r = chars / m_feed_bytes;
             int n = (int)(r * meter_width);
             for(int j = 0; j < meter_width; j++) {
                 if(j < n) std::cout << static_cast<char>(219);
@@ -109,7 +112,7 @@ public:
         /* Calculate physical size
             of file. */
         u16_ifs.seekg(0, u16_ifs.end);
-        feed_bytes = (unsigned int)u16_ifs.tellg();
+        m_feed_bytes = (unsigned int)u16_ifs.tellg();
         u16_ifs.seekg(0, u16_ifs.beg);
 
         u16_ifs.close();
@@ -119,27 +122,32 @@ public:
      * @brief Return the size of the feed file in bytes.
      * @retval unsigned int The size of the feed in bytes.
      */
-    inline unsigned int file_size() { return feed_bytes; }
+    inline unsigned int file_size() { return m_feed_bytes; }
+
+    /**
+     * @brief Return the vector of entries this feed object represents.
+     */
+    inline std::vector<std::wstring> entries() { return m_entries; }
 
 protected:
     /**
      * @brief Virtual function for derived classes' build operation.
      * @retval bool True if build successful.
      */
-    virtual bool build() = 0;
+    virtual bool read() = 0;
 
     /** @brief Structure of options passed from CReaperSession to specify special actions. */
     options_t m_options;
 
     /** @brief Size in bytes of feed file. */
-    unsigned int feed_bytes = 0;
+    unsigned int m_feed_bytes = 0;
     /** @brief Integer that keeps track of how many lines are processed. */
     unsigned int m_num_lines = 0;
 
     /** @brief Timer/clock to measure duration of feed file read. */
-    std::clock_t start;
+    std::clock_t m_start;
     /** @brief Duration of a feed file read based on a std::clock_t timer. */
-    double dur;
+    double m_dur;
 
     /** @brief Vector of remaining arguments after delimiter and details option chosen. */
     std::vector<std::string> m_files;

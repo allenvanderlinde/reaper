@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 
         reaper->build_html();   // Write details and metadata of feed to HTML page
     }
-    std::cout << std::endl << " EXITING Reaper..." << std::endl;
+    reaper->quit();
 
     return 0;
 }

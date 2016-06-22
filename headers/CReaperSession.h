@@ -24,6 +24,9 @@
 #include "../integration/bb_learn/headers/CFlatFile.h"
 #include "../html/COutputResults.h"
 
+/**
+ * @brief Session object for reaper.
+ */
 class CReaperSession {
 public:
     /* Constructor/destructor. */
@@ -80,6 +83,11 @@ public:
      * @retval bool Yes or no.
      */
     bool is_ready() { return m_ready; }
+
+    /**
+     * @brief Print a basic exit string to console.
+     */
+    inline void quit() { std::cout << std::endl << std::endl << " EXITING Reaper..." << std::endl; }
 
 private:
     /** @brief Tells main thread if this object was instantiated successfully. */

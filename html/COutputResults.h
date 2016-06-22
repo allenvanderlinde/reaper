@@ -18,15 +18,23 @@
 #include <vector>
 
 #include "../headers/reaper.h"
+#include "../headers/util.h"
+#include "CHTMLOutputStruct.h"
 
+/**
+ * @brief HTML object of organized results and metadata.
+ */
 class COutputResults {
 public:
     /* Receives validated file paths when
         feed object built and needs to build results
         page. */
     COutputResults(const std::vector<std::string> &_paths,
-                   const options_t &_options);
-    ~COutputResults();
+                   const options_t &_options,
+                   const std::vector<std::wstring> &_entries);
+    ~COutputResults() {
+        delete m_html;
+    };
 
 private:
     /** @brief Structure of options passed from CReaperSession to specify special actions. */
@@ -35,11 +43,8 @@ private:
     /** @brief Vector of remaining arguments after delimiter and details option chosen. */
     std::vector<std::string> m_files;
 
-    /**
-     * @brief Writes HTML to file with parsed and
-     * organized feed metadata and details.
-     */
-    void write_file();
+    /** @brief Structure of elements of the results HTML page. */
+    html_t* m_html;
 
 } typedef HTML;
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['feed_5fready',['feed_ready',['../classgrim.html#abbeeee98e6d789fda6ba90c4883be697',1,'grim']]]
+  ['dump_5fentries',['dump_entries',['../class_feed_file.html#a69feee332115b0f33a89c0214d47d564',1,'FeedFile']]]
 ];
