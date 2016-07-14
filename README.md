@@ -10,13 +10,13 @@ Any code and files currently published are available for educational purposes an
 The above stipulations will remain as they are until otherwise noted by me.
 
 # Latest Code Base
-**Commit:** Io2
+**Last Commit:** Ganymede (initial)
 
 **Desc:** Progress bar finalized and timer added. Option output organization
 finalized. Feed file reading and vector storage optimized (at least for
 now).
 
-~~Moving on to Ganymede1 (vector manipulation and processing/initial
+~~Moving on to Ganymede (vector manipulation and processing/initial
 algorithm/construction of HTML from real data).~~
 
 # reaper
