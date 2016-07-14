@@ -16,8 +16,8 @@ The above stipulations will remain as they are until otherwise noted by me.
 finalized. Feed file reading and vector storage optimized (at least for
 now).
 
-~Moving on to Ganymede1 (vector manipulation and processing/initial
-algorithm/construction of HTML from real data).~
+~~Moving on to Ganymede1 (vector manipulation and processing/initial
+algorithm/construction of HTML from real data).~~
 
 # reaper
 Builds useful HTML pages which describe, organize, and provide various metadata about feed files for SIS integrations.
