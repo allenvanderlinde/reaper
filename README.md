@@ -1,3 +1,23 @@
+# UPDATE
+7/14/2016 - reaper's development, although ongoing, will no longer have live updates to my public GitHub repository. I'm writing a new proprietary thread API which reaper will heavily use. I'll be licensing the API to third-party developers once it's in a good enough shape and version 1.0 is released :]
+
+Current plans for reaper's release are still to be determined. I fully plan on releasing a portable executable and accompanying documentation for non-commercial use by public institutions.
+
+A non-free version will also be available with possible negotiable functionality on a tiered basis for for-profit higher educational, government, and professional institutions.
+
+Any code and files currently published are available for educational purposes and will retain the current GNU General Public License.
+
+The above stipulations will remain as they are until otherwise noted by me.
+
+# Latest Code Base
+**Commit:** Io2
+**Desc:** Progress bar finalized and timer added. Option output organization
+finalized. Feed file reading and vector storage optimized (at least for
+now).
+
+~Moving on to Ganymede1 (vector manipulation and processing/initial
+algorithm/construction of HTML from real data).~
+
 # reaper
 Builds useful HTML pages which describe, organize, and provide various metadata about feed files for SIS integrations.
 
