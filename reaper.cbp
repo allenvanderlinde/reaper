@@ -37,6 +37,9 @@
 		<Unit filename="headers/CReaperSession.h" />
 		<Unit filename="headers/reaper.h" />
 		<Unit filename="headers/util.h" />
+		<Unit filename="html/CHTMLOutputStruct.h" />
+		<Unit filename="html/COutputResults.cpp" />
+		<Unit filename="html/COutputResults.h" />
 		<Unit filename="integration/CFeedFile.cpp" />
 		<Unit filename="integration/CFeedFile.h" />
 		<Unit filename="integration/bb_learn/CFlatFile.cpp" />

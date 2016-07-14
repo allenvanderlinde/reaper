@@ -12,23 +12,25 @@
 
 #include "headers/CFlatFile.h"
 
-CFlatFile::CFlatFile(std::vector<std::string> _paths,
+CFlatFile::CFlatFile(const std::vector<std::string> &_paths,
                      const options_t &_options)
     : CFeedFile(_options) {
     m_files = _paths;
+    /* Note: Need to call calc_size() in derived class
+        as that's where file paths will be defined. This
+        should follow for all derived feed file classes. */
+    calc_size();
 }
 
 CFlatFile::~CFlatFile() {
 };
 
-bool CFlatFile::build() {
+bool CFlatFile::read() {
     /* These are the input stream objects for reading
         the specified feed file (UTF-8). */
-    std::wstringstream u16_sstream;
     std::wstring line;  /* Temporary string for each line which is
                             placed in the entries vector. */
     std::wifstream u16_ifs(m_files[PATH_FEED_FILE], std::ios::in);    // Open the stream to the file immediately
-
     /* Read the specified feed file and push each
         line into the entries vector. */
     if((u16_ifs.rdstate() & std::fstream::failbit) != 0) {  // != 0 is failure meaning the failbit is present
@@ -36,24 +38,20 @@ bool CFlatFile::build() {
         return false;
     } else {
         std::cout << " SUCCESS: Opened \"" << m_files[PATH_FEED_FILE] << "\"" << std::endl;
-        /* Calculate physical size
-            of file. */
-        u16_ifs.seekg(0, u16_ifs.end);
-        feed_bytes = u16_ifs.tellg();
-        u16_ifs.seekg(0, u16_ifs.beg);
+
         std::cout << std::endl << " Reading..." << std::endl;
         if(m_options.use_details) {
             std::cout << std::endl << " \ttype:\t\t" << THIS_FEED_TYPE << std::endl;
-            std::cout << "\tfile size: \t" << feed_bytes << " bytes: " << ((double)feed_bytes / 1024) << "k: " << std::fixed << std::setprecision(5) << ((double)((double)feed_bytes / 1024) / 1024) << "mb" << std::endl;
+            std::cout << "\tfile size: \t" << m_feed_bytes << " bytes: " << std::fixed << std::setprecision(5) << (double)(m_feed_bytes / 1024) << "k: " << std::fixed << std::setprecision(5) << (double)((double)(m_feed_bytes / 1024) / 1024) << "mb" << std::endl;
         }
-        if(u16_ifs.is_open()) {
+        if(u16_ifs.is_open()) { // Ensure file is still open
             /* Build the entries vector from each line
                 in the feed file via a loop. */
             std::cout << std::endl;
             u16_ifs.clear();
             u16_ifs.seekg(0, u16_ifs.beg);
 
-            start = std::clock();   // Start timer
+            m_start = std::clock();   // Start timer
 
             while(std::getline(u16_ifs, line)) {
                 m_entries.push_back(line);
@@ -63,10 +61,10 @@ bool CFlatFile::build() {
             }
             print_meter_done();
 
-            dur = (std::clock() - start) / (double)CLOCKS_PER_SEC;  // Calculate duration of read
+            m_dur = (std::clock() - m_start) / (double)CLOCKS_PER_SEC;  // Calculate duration of read
 
             if(m_options.use_details) std::cout << "\tlength:\t\t" << m_num_lines << " entries" << std::endl << std::endl;
-            std::cout << " Read time: " << std::fixed << std::setprecision(4) << dur << " seconds" << std::endl;
+            std::cout << " Read time: " << std::fixed << std::setprecision(4) << m_dur << " seconds" << std::endl;
 
             /* This ensures if the process is successful
                 the user will know with a 100% regardless

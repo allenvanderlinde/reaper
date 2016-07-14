@@ -19,19 +19,22 @@
 /** @brief Describes the feed file type of this particular derived class. */
 #define THIS_FEED_TYPE "Snapshot Flat File"
 
+/**
+ * @brief Snapshot Flat File object.
+ */
 class CFlatFile : public FeedFile {
 public:
     /* Receives validated file paths when
         reaper determines to build this object. */
-    CFlatFile(std::vector<std::string> _paths,
+    CFlatFile(const std::vector<std::string> &_paths,
               const options_t &_options);
     ~CFlatFile();
 
     /**
-     * @brief Build a Snapshot Flat File from specified filed.
+     * @brief Build a Snapshot Flat File object from specified file.
      * @retval bool True if object is built.
      */
-    bool build();
+    bool read();
 
 private:
 

@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['use_5fdetails',['use_details',['../structoptions__t.html#ad4e691e2e7cc32965b03d44d79665f4d',1,'options_t']]],
-  ['using_5fdetails',['using_details',['../classgrim.html#a9ee4556520039ebd60b872ae1a5606cd',1,'grim']]],
-  ['util_2eh',['util.h',['../util_8h.html',1,'']]],
-  ['util_5fclearconsole',['util_ClearConsole',['../util_8h.html#a3ddf44fb1380c01ac168f12644d4c8b5',1,'util.h']]]
+  ['read',['read',['../class_flat_file.html#a56e1927c4b67cdb1c89a0cb9a4fbbe04',1,'FlatFile::read()'],['../class_feed_file.html#a5c6f7095374f6b18f1f034fefcc59dd7',1,'FeedFile::read()']]],
+  ['read_5fargs',['read_args',['../classgrim.html#abc9010850af30a10cec2526e80278e7a',1,'grim']]],
+  ['ready',['ready',['../classgrim.html#a21759648ac61fec214e718614b878d1a',1,'grim']]],
+  ['reap',['reap',['../classgrim.html#a64a348521ccff4c035f693a0027cfa33',1,'grim']]],
+  ['reaper_2ecpp',['reaper.cpp',['../reaper_8cpp.html',1,'']]],
+  ['reaper_2eh',['reaper.h',['../reaper_8h.html',1,'']]]
 ];

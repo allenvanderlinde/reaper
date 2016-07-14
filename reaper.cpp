@@ -28,29 +28,26 @@
     can be concatenated to other strings for writing to file.
 */
 
-void test_output(std::string file) {
-    std::ofstream output(file);
-    if(output.is_open()) {
-        output << "<!DOCTYPE html>" << std::endl << "<html>\n<body>\n</body>\n</html>" << std::endl;
-    }
-    output.close();
-}
-
 int main(int argc, char* argv[]) {
-    util_ClearConsole();
+    //util_ClearConsole();
     /* Build new reaper
         object. */
     grim* reaper = new grim(argc, argv);
     /* Attempt to parse and extract
         information from feed. */
     if(reaper->is_ready()) {
-        reaper->read_args(argv);
-    } else return 0;
-    std::cout << std::endl << " Reaper is RUNNING..." << std::endl << std::endl;
+        if(!reaper->read_args(argv)) {
+            std::cout << std::endl << " EXITING Reaper..." << std::endl;
 
-    reaper->reap(BB_FLAT_FILE);   // Final version should only need feed type specified
+            return 0;
+        } else {
+            std::cout << std::endl << " Reaper is RUNNING..." << std::endl << std::endl;
+            reaper->reap(BB_FLAT_FILE);   // Final version should only need feed type specified
+        }
 
-    std::cout << std::endl << " EXITING Reaper..." << std::endl;
+        reaper->build_html();   // Write details and metadata of feed to HTML page
+    }
+    reaper->quit();
 
     return 0;
 }

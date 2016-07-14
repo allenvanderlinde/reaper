@@ -25,7 +25,7 @@
    <div id="projectname">reaper
    &#160;<span id="projectnumber">0.1</span>
    </div>
-   <div id="projectbrief">Parse Snapshot Flat Files into highlighted and organized details.</div>
+   <div id="projectbrief">Generate organized results and metadata of various SIS feed files.</div>
   </td>
  </tr>
  </tbody>
@@ -90,25 +90,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_flat_file.html">FlatFile</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_flat_file.html#a1aaacfd9085aab518ea0d07a0ccfdccb">build</a>()</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#a6fa6599058cdd36917762252c764d762">calc_size</a>()</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>CFeedFile</b>(const options_t &amp;_options) (defined in <a class="el" href="class_feed_file.html">FeedFile</a>)</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>CFlatFile</b>(std::vector&lt; std::string &gt; _paths, const options_t &amp;_options) (defined in <a class="el" href="class_flat_file.html">FlatFile</a>)</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>CFlatFile</b>(const std::vector&lt; std::string &gt; &amp;_paths, const options_t &amp;_options) (defined in <a class="el" href="class_flat_file.html">FlatFile</a>)</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_feed_file.html#a69feee332115b0f33a89c0214d47d564">dump_entries</a>()</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#ac4705e0c87dea300f32000884ddfbf51">dur</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_feed_file.html#ab4076a63e6005405d591d583716b114d">feed_bytes</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">m_entries</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#a78a5e9a8a83dc16d9f31ede998f55884">entries</a>()</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_feed_file.html#a6a0f28a623e6bfcb3cbfb49886448ab5">file_size</a>()</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#ae37914d8566194b9336eb9557c6939cf">m_dur</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_feed_file.html#a60e590fb0c14b57417ddb98847df1626">m_entries</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#a63bb6f3c999f4081191709e58fda37ef">m_feed_bytes</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_feed_file.html#afd1e278ce06a454d30444ccdef83f465">m_files</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#a0ec5a6608c3952343d668093f3784489">m_num_lines</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_feed_file.html#a77a5e73d2b2d12543c67b12b05af76b3">m_options</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">print_meter_done</a>()</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#a900239c91bd65ec85fbf4c5267f7d84d">m_start</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_feed_file.html#a1f880713d1da6526ff3ad3d20cf1fe5e">print_meter_done</a>()</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_flat_file.html#a56e1927c4b67cdb1c89a0cb9a4fbbe04">read</a>()</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_feed_file.html#aa19aa94cd2354315321b7d7bf215af44">show_progress</a>(const std::size_t &amp;line_len)</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_feed_file.html#aed3f137f4c33c617b32f6d5ba44c9765">start</a></td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~CFeedFile</b>() (defined in <a class="el" href="class_feed_file.html">FeedFile</a>)</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~CFlatFile</b>() (defined in <a class="el" href="class_flat_file.html">FlatFile</a>)</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~CFeedFile</b>() (defined in <a class="el" href="class_feed_file.html">FeedFile</a>)</td><td class="entry"><a class="el" href="class_feed_file.html">FeedFile</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>~CFlatFile</b>() (defined in <a class="el" href="class_flat_file.html">FlatFile</a>)</td><td class="entry"><a class="el" href="class_flat_file.html">FlatFile</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 14 2016 17:27:27 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 22 2016 16:23:19 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

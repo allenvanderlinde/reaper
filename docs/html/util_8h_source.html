@@ -25,7 +25,7 @@
    <div id="projectname">reaper
    &#160;<span id="projectnumber">0.1</span>
    </div>
-   <div id="projectbrief">Parse Snapshot Flat Files into highlighted and organized details.</div>
+   <div id="projectbrief">Generate organized results and metadata of various SIS feed files.</div>
   </td>
  </tr>
  </tbody>
@@ -125,12 +125,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    SetConsoleCursorPosition(hConsole, zerozero);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // _UTIL_H_</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="util_8h.html#aa88b162abf50a07f4cbe5fd230226d53">   53</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="util_8h.html#aa88b162abf50a07f4cbe5fd230226d53">util_SearchKeyword</a>(std::string path,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                               std::wstring keyword) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::wifstream u16_ifs(path, std::ios::in);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    std::wstring line;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> byte = 0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line_num = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::size_t col = 0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>((u16_ifs.rdstate() &amp; std::fstream::failbit) != 0) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot; reaper: Unable to open file at: \&quot;&quot;</span> &lt;&lt; path &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot; Searching in \&quot;&quot;</span> &lt;&lt; path &lt;&lt; <span class="stringliteral">&quot;\&quot;...&quot;</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">/* Search through specified file and find</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">        keywords to store or modify. */</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">while</span>(std::getline(u16_ifs, line)) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        line_num++;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        col = line.find(keyword);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span>(col != std::string::npos) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            byte = u16_ifs.tellg();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            std::wcout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;\ttellg(): &quot;</span> &lt;&lt; byte &lt;&lt; <span class="stringliteral">&quot; | Found keyword \&quot;&quot;</span> &lt;&lt; keyword &lt;&lt; <span class="stringliteral">&quot;\&quot; at line &quot;</span> &lt;&lt; line_num &lt;&lt; <span class="stringliteral">&quot; and column &quot;</span> &lt;&lt; (<span class="keywordtype">unsigned</span> int)(col + 1);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    u16_ifs.close();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="util_8h.html#a357ac634b8bf1b7758f96f7e68bb6340">   85</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="util_8h.html#a357ac634b8bf1b7758f96f7e68bb6340">util_WString</a>(std::wstring &amp;ws,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                         <span class="keyword">const</span> std::string &amp;s) {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    std::wstring temp(s.begin(), s.end());</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    ws = temp;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif // _UTIL_H_</span></div>
+<div class="ttc" id="util_8h_html_a357ac634b8bf1b7758f96f7e68bb6340"><div class="ttname"><a href="util_8h.html#a357ac634b8bf1b7758f96f7e68bb6340">util_WString</a></div><div class="ttdeci">void util_WString(std::wstring &amp;ws, const std::string &amp;s)</div><div class="ttdoc">Convert a std::string to a std::wstring. </div><div class="ttdef"><b>Definition:</b> util.h:85</div></div>
 <div class="ttc" id="util_8h_html_a3ddf44fb1380c01ac168f12644d4c8b5"><div class="ttname"><a href="util_8h.html#a3ddf44fb1380c01ac168f12644d4c8b5">util_ClearConsole</a></div><div class="ttdeci">void util_ClearConsole()</div><div class="ttdoc">This function traverses each cell of the console and replaces it with a space, effectively clearing t...</div><div class="ttdef"><b>Definition:</b> util.h:24</div></div>
+<div class="ttc" id="util_8h_html_aa88b162abf50a07f4cbe5fd230226d53"><div class="ttname"><a href="util_8h.html#aa88b162abf50a07f4cbe5fd230226d53">util_SearchKeyword</a></div><div class="ttdeci">void util_SearchKeyword(std::string path, std::wstring keyword)</div><div class="ttdoc">This function opens and reads a plain text file line-for-line to search for a specific keyword...</div><div class="ttdef"><b>Definition:</b> util.h:53</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 14 2016 17:27:27 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 22 2016 16:23:19 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

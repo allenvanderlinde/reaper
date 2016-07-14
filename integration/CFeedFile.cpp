@@ -14,6 +14,9 @@
 
 CFeedFile::CFeedFile(const options_t &_options) {
     m_options = _options;
+    /* Note: Need to call calc_size() in derived class
+        as that's where file paths will be defined. This
+        should follow for all derived feed file classes. */
 }
 
 CFeedFile::~CFeedFile() {

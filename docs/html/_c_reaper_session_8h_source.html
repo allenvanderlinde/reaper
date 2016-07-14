@@ -25,7 +25,7 @@
    <div id="projectname">reaper
    &#160;<span id="projectnumber">0.1</span>
    </div>
-   <div id="projectbrief">Parse Snapshot Flat Files into highlighted and organized details.</div>
+   <div id="projectbrief">Generate organized results and metadata of various SIS feed files.</div>
   </td>
  </tr>
  </tbody>
@@ -107,59 +107,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="reaper_8h.html">reaper.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../integration/bb_learn/headers/CFlatFile.h&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classgrim.html">   26</a></span>&#160;<span class="keyword">class </span>CReaperSession {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">/* Constructor/destructor. */</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    CReaperSession(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;_argc,</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                   <span class="keywordtype">char</span>* _argv[]);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ~CReaperSession();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> ready(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;_argc,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;               <span class="keywordtype">char</span>* _argv[]);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> read_args(<span class="keywordtype">char</span>* _argv[]);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> store_args(<span class="keywordtype">char</span>* _argv[]);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> reap(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;feed_type);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classgrim.html#a9ee4556520039ebd60b872ae1a5606cd">   66</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgrim.html#a9ee4556520039ebd60b872ae1a5606cd">using_details</a>() { <span class="keywordflow">return</span> options.use_details; }</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classgrim.html#a6c174bdfce481eb97bc7f69af55b24d0">   71</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgrim.html#a6c174bdfce481eb97bc7f69af55b24d0">is_ready</a>() { <span class="keywordflow">return</span> m_ready; }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">bool</span> m_ready = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="structoptions__t.html">options_t</a> options;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">int</span> m_argc;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::string m_delim = <span class="stringliteral">&quot;|&quot;</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    std::vector&lt;std::string&gt; m_args;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;../html/COutputResults.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classgrim.html">   30</a></span>&#160;<span class="keyword">class </span>CReaperSession {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">/* Constructor/destructor. */</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    CReaperSession(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;_argc,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                   <span class="keywordtype">char</span>* _argv[]);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ~CReaperSession();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">bool</span> ready(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;_argc,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;               <span class="keywordtype">char</span>* _argv[]);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> read_args(<span class="keywordtype">char</span>* _argv[]);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> store_args(<span class="keywordtype">char</span>* _argv[]);</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classgrim.html#abbeeee98e6d789fda6ba90c4883be697">   61</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgrim.html#abbeeee98e6d789fda6ba90c4883be697">feed_ready</a>() { <span class="keywordflow">return</span> m_feed_ready; }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> reap(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;feed_type);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> build_html();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classgrim.html#a9ee4556520039ebd60b872ae1a5606cd">   80</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgrim.html#a9ee4556520039ebd60b872ae1a5606cd">using_details</a>() { <span class="keywordflow">return</span> m_options.use_details; }</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classgrim.html#a6c174bdfce481eb97bc7f69af55b24d0">   85</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgrim.html#a6c174bdfce481eb97bc7f69af55b24d0">is_ready</a>() { <span class="keywordflow">return</span> m_ready; }</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    std::vector&lt;std::string&gt; m_paths{<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;&quot;</span>};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="class_flat_file.html">FlatFile</a> *ff;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> supported_types() {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;  REAPER.exe&quot;</span> &lt;&lt; std::endl &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;  LMS and integration feed type support:&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;  ---------------------------------------------------&quot;</span> &lt;&lt; std::endl &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; <a class="code" href="reaper_8h.html#adb77a6c6071442f1548dd8128ce1d55c">CURRENTLY_SUPPORTED</a> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;} <span class="keyword">typedef</span> <a class="code" href="classgrim.html">grim</a>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif // _CREAPERSESSION_H_</span></div>
-<div class="ttc" id="classgrim_html"><div class="ttname"><a href="classgrim.html">grim</a></div><div class="ttdef"><b>Definition:</b> CReaperSession.h:26</div></div>
-<div class="ttc" id="structoptions__t_html"><div class="ttname"><a href="structoptions__t.html">options_t</a></div><div class="ttdoc">Structure of options passed between objects. </div><div class="ttdef"><b>Definition:</b> reaper.h:47</div></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classgrim.html#a8e0a591560b48630587dd13a0b9b3a78">   90</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classgrim.html#a8e0a591560b48630587dd13a0b9b3a78">quit</a>() { std::cout &lt;&lt; std::endl &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot; EXITING Reaper...&quot;</span> &lt;&lt; std::endl; }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">bool</span> m_ready = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="structoptions__t.html">options_t</a> m_options;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">bool</span> m_feed_ready = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">int</span> m_argc;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    std::string m_delim = <span class="stringliteral">&quot;|&quot;</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    std::vector&lt;std::string&gt; m_args;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    std::vector&lt;std::string&gt; m_paths{<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;&quot;</span>};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="class_flat_file.html">FlatFile</a>* ff;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="class_h_t_m_l.html">HTML</a>* results;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> supported_types() {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;  REAPER.exe&quot;</span> &lt;&lt; std::endl &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;  LMS and integration feed type support:&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;  ---------------------------------------------------&quot;</span> &lt;&lt; std::endl &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; <a class="code" href="reaper_8h.html#adb77a6c6071442f1548dd8128ce1d55c">CURRENTLY_SUPPORTED</a> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;} <span class="keyword">typedef</span> <a class="code" href="classgrim.html">grim</a>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif // _CREAPERSESSION_H_</span></div>
+<div class="ttc" id="classgrim_html"><div class="ttname"><a href="classgrim.html">grim</a></div><div class="ttdoc">Session object for reaper. </div><div class="ttdef"><b>Definition:</b> CReaperSession.h:30</div></div>
+<div class="ttc" id="structoptions__t_html"><div class="ttname"><a href="structoptions__t.html">options_t</a></div><div class="ttdoc">Structure of options passed between objects. </div><div class="ttdef"><b>Definition:</b> reaper.h:50</div></div>
+<div class="ttc" id="classgrim_html_a8e0a591560b48630587dd13a0b9b3a78"><div class="ttname"><a href="classgrim.html#a8e0a591560b48630587dd13a0b9b3a78">grim::quit</a></div><div class="ttdeci">void quit()</div><div class="ttdoc">Print a basic exit string to console. </div><div class="ttdef"><b>Definition:</b> CReaperSession.h:90</div></div>
+<div class="ttc" id="class_h_t_m_l_html"><div class="ttname"><a href="class_h_t_m_l.html">HTML</a></div><div class="ttdoc">HTML object of organized results and metadata. </div><div class="ttdef"><b>Definition:</b> COutputResults.h:27</div></div>
 <div class="ttc" id="reaper_8h_html"><div class="ttname"><a href="reaper_8h.html">reaper.h</a></div><div class="ttdoc">Constants, definitions, etc., for the more general aspects of reaper. </div></div>
-<div class="ttc" id="class_flat_file_html"><div class="ttname"><a href="class_flat_file.html">FlatFile</a></div><div class="ttdef"><b>Definition:</b> CFlatFile.h:22</div></div>
+<div class="ttc" id="class_flat_file_html"><div class="ttname"><a href="class_flat_file.html">FlatFile</a></div><div class="ttdoc">Snapshot Flat File object. </div><div class="ttdef"><b>Definition:</b> CFlatFile.h:25</div></div>
 <div class="ttc" id="reaper_8h_html_adb77a6c6071442f1548dd8128ce1d55c"><div class="ttname"><a href="reaper_8h.html#adb77a6c6071442f1548dd8128ce1d55c">CURRENTLY_SUPPORTED</a></div><div class="ttdeci">#define CURRENTLY_SUPPORTED</div><div class="ttdoc">String of currently supported SIS integration feed types. </div><div class="ttdef"><b>Definition:</b> reaper.h:18</div></div>
-<div class="ttc" id="classgrim_html_a9ee4556520039ebd60b872ae1a5606cd"><div class="ttname"><a href="classgrim.html#a9ee4556520039ebd60b872ae1a5606cd">grim::using_details</a></div><div class="ttdeci">bool using_details()</div><div class="ttdoc">Are details being displayed? </div><div class="ttdef"><b>Definition:</b> CReaperSession.h:66</div></div>
-<div class="ttc" id="classgrim_html_a6c174bdfce481eb97bc7f69af55b24d0"><div class="ttname"><a href="classgrim.html#a6c174bdfce481eb97bc7f69af55b24d0">grim::is_ready</a></div><div class="ttdeci">bool is_ready()</div><div class="ttdoc">Is reaper ready to run? </div><div class="ttdef"><b>Definition:</b> CReaperSession.h:71</div></div>
+<div class="ttc" id="classgrim_html_a9ee4556520039ebd60b872ae1a5606cd"><div class="ttname"><a href="classgrim.html#a9ee4556520039ebd60b872ae1a5606cd">grim::using_details</a></div><div class="ttdeci">bool using_details()</div><div class="ttdoc">Are details being displayed? </div><div class="ttdef"><b>Definition:</b> CReaperSession.h:80</div></div>
+<div class="ttc" id="classgrim_html_abbeeee98e6d789fda6ba90c4883be697"><div class="ttname"><a href="classgrim.html#abbeeee98e6d789fda6ba90c4883be697">grim::feed_ready</a></div><div class="ttdeci">bool feed_ready()</div><div class="ttdoc">Tells whether the feed was read successfully. </div><div class="ttdef"><b>Definition:</b> CReaperSession.h:61</div></div>
+<div class="ttc" id="classgrim_html_a6c174bdfce481eb97bc7f69af55b24d0"><div class="ttname"><a href="classgrim.html#a6c174bdfce481eb97bc7f69af55b24d0">grim::is_ready</a></div><div class="ttdeci">bool is_ready()</div><div class="ttdoc">Is reaper ready to run? </div><div class="ttdef"><b>Definition:</b> CReaperSession.h:85</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 14 2016 17:27:27 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 22 2016 16:23:19 for reaper by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
