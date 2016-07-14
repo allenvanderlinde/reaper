@@ -11,6 +11,7 @@ The above stipulations will remain as they are until otherwise noted by me.
 
 # Latest Code Base
 **Commit:** Io2
+
 **Desc:** Progress bar finalized and timer added. Option output organization
 finalized. Feed file reading and vector storage optimized (at least for
 now).
