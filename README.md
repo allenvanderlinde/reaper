@@ -1,5 +1,5 @@
 # UPDATE
-**7/14/2016** - reaper's development, although ongoing, will no longer have live updates to my public GitHub repository. I'm writing a new proprietary thread API which reaper will heavily use. I'll be licensing the API to third-party developers once it's in a good enough shape and version 1.0 is released :]
+**7/14/2016** - reaper's development, although ongoing, will no longer have live updates to my public GitHub repository. I'm writing a new proprietary thread API which reaper will heavily use.
 
 Current plans for reaper's release are still to be determined. I fully plan on releasing a portable executable and accompanying documentation for non-commercial use by public institutions.
 
