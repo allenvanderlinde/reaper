@@ -3,12 +3,6 @@
 
 Current plans for reaper's release are still to be determined. I fully plan on releasing a portable executable and accompanying documentation for non-commercial use by public institutions.
 
-A non-free version will also be available with possible negotiable functionality on a tiered basis for for-profit higher educational, government, and professional institutions at a cost.
-
-Any code and files currently published are available for educational purposes and will retain the current GNU General Public License.
-
-The above stipulations will remain as they are until otherwise noted by me.
-
 # Latest Code Base
 **Last Commit:** Ganymede (initial)
 
